@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/myprofile"
+        android:icon="@drawable/ic_change_pwd"
+        android:title="My Profile"/>
+
+    <item android:id="@+id/job_profile"
+        android:icon="@drawable/ic_change_pwd"
+        android:title="Job Profile"/>
+
+    <item android:id="@+id/new_jobs"
+        android:icon="@drawable/ic_change_pwd"
+        android:title="New Jobs"/>
+
+    <item android:id="@+id/search_jobs"
+        android:icon="@drawable/ic_change_pwd"
+        android:title="Search Jobs"/>
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_change_pwd"
+        android:title="Logout"/>
+</menu>

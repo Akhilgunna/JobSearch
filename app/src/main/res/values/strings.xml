@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Part Time Job Search</string>
+    <string-array name="stud_emp">
+
+        <item>Student</item>
+        <item>Employee</item>
+    </string-array>
+
+    <string name="Open">Open navigation drawer</string>
+    <string name="Close">Close navigation drawer</string>
+
+    <string name="covid_note">Note :- Due to Covid-19 would you like to indicate your interview online</string>
+</resources>
