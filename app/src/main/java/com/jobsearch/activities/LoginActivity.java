@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_forget_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,ChangePasswordActivity.class);
+                Intent intent=new Intent(LoginActivity.this,ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* Intent intent=new Intent(LoginActivity.this, MyProfileActivity.class);
+              /*Intent intent=new Intent(LoginActivity.this, MyProfileActivity.class);
                 startActivity(intent);*/
 
                 if(et_uname.getText().toString().isEmpty()) {

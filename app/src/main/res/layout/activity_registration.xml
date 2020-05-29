@@ -10,7 +10,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/tv_first_name"
         android:text="Firstname"
         android:textSize="16dp"
         android:layout_marginTop="20dp"
@@ -67,6 +67,44 @@
         android:layout_marginRight="30dp"
         android:layout_height="2dp"
         android:background="#E0E7E1"/>
+
+    <TextView
+        android:id="@+id/tv_GENDER"
+        android:hint="Gender"
+        android:textSize="16dp"
+        android:textColor="#292828"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"
+        android:orientation="horizontal">
+
+
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:layout_weight="1"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Female"
+            android:checked="false" />
+
+    </RadioGroup>
 
     <TextView
         android:id="@+id/tv_email"
@@ -174,8 +212,8 @@
 
     <EditText
         android:id="@+id/et_password"
-        android:singleLine="true"
         android:inputType="textPassword"
+        android:singleLine="true"
         android:background="#FFFFFF"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
@@ -191,8 +229,9 @@
         android:background="#E0E7E1"/>
 
     <Button
-        android:id="@+id/bt_upload_img"
+        android:id="@+id/select_image"
         android:text="Upload Photo"
+        android:visibility="gone"
         android:padding="18dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="85dp"
