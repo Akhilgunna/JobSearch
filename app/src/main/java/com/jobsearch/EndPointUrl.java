@@ -4,6 +4,8 @@ package com.jobsearch;
 
 
 import com.jobsearch.models.EditProfilePojo;
+import com.jobsearch.models.MyProfilePOJO;
+import com.jobsearch.models.UploadObject;
 
 import java.util.List;
 import java.util.Map;
@@ -20,15 +22,40 @@ import retrofit2.http.Query;
 public interface EndPointUrl {
 
 
-    @GET("Jobsearch/user_registration.php")
-    Call<ResponseData> user_registration(
-            @Query("fname") String fname,
-            @Query("phone") String phone,
-            @Query("emailid") String emailid,
-            @Query("lname") String lname,
-            @Query("pwd") String pwd,
-            @Query("utype") String utype
+//    @GET("Jobsearch/user_registration.php")
+//    Call<ResponseData> ur(
+//            @Query("fname") String fname,
+//            @Query("phone") String phone,
+//            @Query("emailid") String emailid,
+//            @Query("lname") String lname,
+//            @Query("pwd") String pwd,
+//            @Query("gender") String gender,
+//            @Query("utype") String utype
+//
+//    );
 
+    @Multipart
+    @POST("Jobsearch/user_registration.php")
+    Call<ResponseData> user_registration(
+            @Part MultipartBody.Part file,
+            @PartMap Map<String, String> partMap
+
+    );
+  /*  @Multipart
+    @POST("Jobsearch/user_registration.php")
+    Call<ResponseData> user_registration(
+            @Part MultipartBody.Part file,
+            @PartMap Map<String, String> partMap
+
+    );*/
+
+
+
+
+    @GET("Jobsearch/changepassword.php")
+    Call<ResponseData> change_password(
+            @Query("emailid") String emailid,
+            @Query("pwd") String pwd
     );
 
     @GET("Jobsearch/login.php")
@@ -55,7 +82,20 @@ public interface EndPointUrl {
             @Query("pwd") String pwd
     );
 
+    @GET("Jobsearch/forgotPassword.php")
+    Call<ResponseData> forgotPassword
+            (
+
+                    @Query("emailid") String emailid
+            );
 
 
+    @Multipart
+    @POST("Jobsearch/test.php?")
+    Call<ResponseData> test(
+            @Part MultipartBody.Part file,
+            @PartMap Map<String, String> partMap
+
+    );
 
 }

@@ -31,6 +31,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:29.0.2"
 
     implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'pub.devrel:easypermissions:0.2.0'//image upload
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'

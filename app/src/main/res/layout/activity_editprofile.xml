@@ -4,183 +4,187 @@
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TableLayout
-        android:id="@+id/tv_layout"
+<TableLayout
+android:id="@+id/tv_layout"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+    <ImageView android:id="@+id/image_view"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btn_change_photo"
+        android:text="Change Photo"
+        android:layout_gravity="right"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginBottom="2dp"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/button1_rounded" />
 
-        <ImageView android:id="@+id/image_view"
-            android:layout_width="140dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:paddingLeft="4dp"
-            android:paddingTop="4dp"/>
 
-        <Button
-            android:id="@+id/btn_change_photo"
-            android:text="Change Photo"
-            android:layout_gravity="right"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="2dp"
-            android:textColor="#65B1D3"
-            android:textAllCaps="false"
+    <TableRow
+    android:layout_marginBottom="15dp"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#0E0D0D"
+        android:layout_weight="0"
+        android:text="First Name :" />
+
+    <EditText
+        android:id="@+id/et_first_name"
+        android:layout_weight="1"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15dp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</TableRow>
+
+    <TableRow
+        android:layout_marginBottom="15dp"
+        android:padding="5dp">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button1_rounded" />
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#0E0D0D"
+            android:layout_weight="0"
+            android:text="Last Name :" />
 
+        <EditText
+            android:id="@+id/et_last_name"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-        <TableRow
-            android:layout_marginBottom="15dp"
-            android:padding="5dp">
+    <TableRow
+        android:layout_marginBottom="15dp"
+        android:padding="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#0E0D0D"
-                android:layout_weight="0"
-                android:text="First Name :" />
-
-            <EditText
-                android:id="@+id/et_first_name"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="15dp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginBottom="15dp"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#0E0D0D"
-                android:layout_weight="0"
-                android:text="Last Name :" />
-
-            <EditText
-                android:id="@+id/et_last_name"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="15dp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginBottom="15dp"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#0E0D0D"
-                android:layout_weight="0"
-                android:text="Email :" />
-
-            <EditText
-                android:id="@+id/et_email"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="15dp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginBottom="15dp"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#0E0D0D"
-                android:layout_weight="0"
-                android:text="Phone no :" />
-
-            <EditText
-                android:id="@+id/et_phno"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="15dp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow
-            android:layout_marginBottom="15dp"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#0E0D0D"
-                android:layout_weight="0"
-                android:text="Password :" />
-
-            <EditText
-                android:id="@+id/et_pwd"
-                android:layout_weight="1"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="15dp"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <Button
-            android:id="@+id/btn_save"
-            android:text="Save"
-            android:layout_gravity="right"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="2dp"
-            android:textColor="#65B1D3"
-            android:textAllCaps="false"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button1_rounded" />
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#0E0D0D"
+            android:layout_weight="0"
+            android:text="Email :" />
 
-
-        <Button
-            android:id="@+id/bt_upload_resume"
-            android:text="Upload Resume"
-            android:padding="18dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
-            android:background="@drawable/button1_rounded"
-            android:textColor="#65B1D3"
-            android:textAllCaps="false"
+        <EditText
+            android:id="@+id/et_email"
+            android:editable="false"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:padding="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </TableLayout>
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="15dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#0E0D0D"
+            android:layout_weight="0"
+            android:text="Phone no :" />
+
+        <EditText
+            android:id="@+id/et_phno"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="15dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#0E0D0D"
+            android:layout_weight="0"
+            android:text="Password :" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:text="Save"
+        android:layout_gravity="right"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginBottom="2dp"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button1_rounded" />
+
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/bt_upload_resume"
+        android:text="Upload Resume"
+        android:padding="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/button1_rounded"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</TableLayout>
 </ScrollView>

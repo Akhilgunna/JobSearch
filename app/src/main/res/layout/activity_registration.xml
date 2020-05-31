@@ -3,219 +3,257 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tv_username"
-        android:text="Firstname"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-        android:id="@+id/et_first_name"
-        android:singleLine="true"
+    <LinearLayout
+        android:orientation="vertical"
         android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
-
-
-    <TextView
-        android:id="@+id/tv_last"
-        android:text="Lastname"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_first_name"
+            android:text="Firstname"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    <EditText
-        android:id="@+id/et_last_name"
-        android:singleLine="true"
-        android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_first_name"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
-
-    <TextView
-        android:id="@+id/tv_email"
-        android:text="Email"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
 
 
-    <EditText
-        android:id="@+id/et_email"
-        android:singleLine="true"
-        android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
-
-    <TextView
-        android:id="@+id/tv_phno"
-        android:text="Phoneno"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_last"
+            android:text="Lastname"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    <EditText
-        android:id="@+id/et_phone_no"
-        android:singleLine="true"
-        android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_last_name"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
 
-    <TextView
-        android:id="@+id/tv_spin"
-        android:text="User Type"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_GENDER"
+            android:hint="Gender"
+            android:textSize="16dp"
+            android:textColor="#292828"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <Spinner
-        android:id="@+id/spin_stud_emp"
-        android:singleLine="true"
-        android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/stud_emp"
-        android:scrollbars="none"
-        android:spinnerMode="dropdown"/>
+        <RadioGroup
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal">
 
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:layout_weight="1"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Female"
+                android:checked="false" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:text="Email"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    <TextView
-        android:id="@+id/tv_pwd"
-        android:text="Password"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30dp"
-        android:textColor="#292828"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_email"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
+
+        <TextView
+            android:id="@+id/tv_phno"
+            android:text="Phoneno"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    <EditText
-        android:id="@+id/et_password"
-        android:singleLine="true"
-        android:inputType="textPassword"
-        android:background="#FFFFFF"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_phone_no"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="2dp"
-        android:background="#E0E7E1"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
 
-    <Button
-        android:id="@+id/bt_upload_img"
-        android:text="Upload Photo"
-        android:padding="18dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginRight="85dp"
-        android:background="@drawable/button1_rounded"
-        android:textColor="#171818"
-        android:textAllCaps="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_spin"
+            android:text="User Type"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spin_stud_emp"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/stud_emp"
+            android:scrollbars="none"
+            android:spinnerMode="dropdown"/>
 
 
-    <Button
-        android:id="@+id/bt_reg"
-        android:text="Register"
-        android:padding="18dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:background="@drawable/button1_rounded"
-        android:textColor="#65B1D3"
-        android:textAllCaps="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
 
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_pwd"
+            android:text="Password"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
+
+        <Button
+            android:id="@+id/select_image"
+            android:text="Upload Photo"
+            android:padding="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginRight="85dp"
+            android:background="@drawable/button1_rounded"
+            android:textColor="#171818"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:id="@+id/bt_reg"
+            android:text="Register"
+            android:padding="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:background="@drawable/button1_rounded"
+            android:textColor="#65B1D3"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </ScrollView>
