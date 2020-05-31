@@ -26,6 +26,14 @@
         <activity android:name=".activities.MyProfileActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".activities.EditYourProfileActivity" />
+        <activity android:name=".activities.SearchRelatedJobsActivity" />
+        <activity android:name=".activities.NewJobsActivity" />
+        <activity android:name=".activities.JobDetailsActivity" />
+        <activity android:name=".activities.ScheduleAppointmentActivity" />
+        <activity android:name=".activities.FillTheDetailsFormActivity" />
+
+
+
     </application>
 
 </manifest>

@@ -71,11 +71,11 @@ public class MyProfileActivity extends AppCompatActivity {
         tv_email=(TextView)findViewById(R.id.tv_email);
         tv_lname=(TextView)findViewById(R.id.tv_lname);
         tv_phone=(TextView)findViewById(R.id.tv_phone);
-       // et_bio=(EditText)findViewById(R.id.et_bio);
+        // et_bio=(EditText)findViewById(R.id.et_bio);
 
-      //  tv_email.setText("Email_Id   :"+session);
-       // tv_fname.setText("Name  :Testing");
-      //  Glide.with(MyProfileActivity.this).load("https://talentedteacherjobs.co.uk/wp-content/uploads/2018/12/Passport-size-Photo.jpg").into(image_view);
+        //  tv_email.setText("Email_Id   :"+session);
+        // tv_fname.setText("Name  :Testing");
+        //  Glide.with(MyProfileActivity.this).load("https://talentedteacherjobs.co.uk/wp-content/uploads/2018/12/Passport-size-Photo.jpg").into(image_view);
 
 
 
@@ -92,13 +92,16 @@ public class MyProfileActivity extends AppCompatActivity {
 
                 progressDialog.dismiss();
                 a1 = response.body();
-                // Toast.makeText(getApplicationContext(),""+response.body().size(),Toast.LENGTH_LONG).show();
+
                 EditProfilePojo user = a1.get(0);
 
                 tv_fname.setText(user.getFname());
 
                 tv_lname.setText(user.getLname());
 
+                Glide.with(MyProfileActivity.this).load("http://parttimejobs.site/Jobsearch/"+user.getImg_photo()).into(image_view);
+
+                Toast.makeText(getApplicationContext(),""+user.getImg_photo(),Toast.LENGTH_LONG).show();
 
                 tv_phone.setText(user.getPhone());
 
@@ -170,16 +173,16 @@ public class MyProfileActivity extends AppCompatActivity {
         }
     }
 
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (dl.isDrawerOpen(GravityCompat.START)) {
-            dl.closeDrawer(GravityCompat.START);
-        } else {
-            dl.openDrawer(GravityCompat.START);
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+    /* @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         int id = item.getItemId();
+         if (dl.isDrawerOpen(GravityCompat.START)) {
+             dl.closeDrawer(GravityCompat.START);
+         } else {
+             dl.openDrawer(GravityCompat.START);
+         }
+         return super.onOptionsItemSelected(item);
+     }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);

@@ -18,12 +18,16 @@ public class EditProfilePojo {
     @SerializedName("pwd")
     private String pwd ;
 
-    EditProfilePojo(String fname,String lname, String phone, String email,String pwd){
+    @SerializedName("img_photo")
+    private String img_photo ;
+
+    EditProfilePojo(String fname,String lname, String phone, String email,String pwd,String img_photo){
         this.setFname(fname);
         this.setLname(lname);
         this.setPhone(phone);
         this.setEmail(email);
         this.setPwd(pwd);
+        this.setImg_photo(img_photo);
 
     }
 
@@ -67,5 +71,13 @@ public class EditProfilePojo {
 
     public void setLname(String lname) {
         this.lname = lname;
+    }
+
+    public String getImg_photo() {
+        return img_photo;
+    }
+
+    public void setImg_photo(String img_photo) {
+        this.img_photo = img_photo;
     }
 }
