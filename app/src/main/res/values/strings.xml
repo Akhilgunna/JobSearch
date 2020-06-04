@@ -3,7 +3,15 @@
     <string-array name="stud_emp">
         <!--        <item>User/Employee</item>-->
         <item>User</item>
-        <item>Employee</item>
+        <item>Employer</item>
+    </string-array>
+
+
+    <string-array name="login">
+        <!--        <item>User/Employee</item>-->
+        <item>User</item>
+        <item>Employer</item>
+        <item>Admin</item>
     </string-array>
 
     <string name="Open">Open navigation drawer</string>

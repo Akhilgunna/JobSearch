@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     Button bt_login;
     TextView tv_reg_here,tv_forget_pass;
+    Spinner spin_stud_emp;
     EditText et_uname,et_password;
     SharedPreferences sharedPreferences;
 
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
        /* getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
+        spin_stud_emp=(Spinner)findViewById(R.id.spin_stud_emp);
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         tv_forget_pass=(TextView)findViewById(R.id.tv_forget_pass);
         tv_forget_pass.setOnClickListener(new View.OnClickListener() {
@@ -87,13 +90,13 @@ public class LoginActivity extends AppCompatActivity {
     private void submitData(){
         String str=et_uname.getText().toString();
         String str1=et_password.getText().toString();
-
+        String str2=spin_stud_emp.getSelectedItem().toString();
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
 
         EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<ResponseData> call = service.user_login(str,str1);
+        Call<ResponseData> call = service.user_login(str,str1,str2);
         call.enqueue(new Callback<ResponseData>() {
             @Override
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
@@ -102,8 +105,27 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("user_name",et_uname.getText().toString());
                     editor.commit();
-                    startActivity(new Intent(LoginActivity.this, MyProfileActivity.class));
-                    finish();
+
+                    if(response.body().message.equals("User Success")) {
+                        startActivity(new Intent(LoginActivity.this, MyProfileActivity.class));
+                        finish();
+                    }
+
+                    else if(response.body().message.equals("Emp Success")) {
+                        startActivity(new Intent(LoginActivity.this, MyEmployerProfileActivity.class));
+                        finish();
+                    }
+                    if(response.body().message.equals("Admin Success")) {
+                       // startActivity(new Intent(LoginActivity.this, MyProfileActivity.class));
+                       // finish();
+                        Toast.makeText(LoginActivity.this,response.body().message,Toast.LENGTH_LONG).show();
+
+
+                    }
+
+
+
+
                 }else{
                     Toast.makeText(LoginActivity.this,response.body().message,Toast.LENGTH_LONG).show();
                 }

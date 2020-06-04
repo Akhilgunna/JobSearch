@@ -30,6 +30,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+        getSupportActionBar().setTitle("Forget Password");
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         uname=sharedPreferences.getString("user_name","");
 

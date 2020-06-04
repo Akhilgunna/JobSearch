@@ -13,7 +13,8 @@
         android:roundIcon="@drawable/splash_screen"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ForgotPasswordActivity"></activity>
+        <activity android:name=".activities.EditJobActivity"></activity>
+        <activity android:name=".activities.ForgotPasswordActivity" />
         <activity android:name=".activities.SlashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,19 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.ListOfJobsActivity" />
+        <activity android:name=".activities.MyEmployerProfileActivity" />
+        <activity android:name=".activities.PostaJobActivity" />
         <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ImageFunctionality" />
         <activity android:name=".activities.RegistrationActivity" />
         <activity android:name=".activities.MyProfileActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".activities.EditYourProfileActivity" />
-        <activity android:name=".activities.SearchRelatedJobsActivity" />
-        <activity android:name=".activities.NewJobsActivity" />
-        <activity android:name=".activities.JobDetailsActivity" />
-        <activity android:name=".activities.ScheduleAppointmentActivity" />
-        <activity android:name=".activities.FillTheDetailsFormActivity" />
-
-
-
     </application>
 
 </manifest>

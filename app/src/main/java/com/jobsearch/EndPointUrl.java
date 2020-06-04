@@ -3,7 +3,9 @@ package com.jobsearch;
 
 
 
+import com.jobsearch.models.EditMyJobsPojo;
 import com.jobsearch.models.EditProfilePojo;
+import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
 import com.jobsearch.models.UploadObject;
 
@@ -41,13 +43,13 @@ public interface EndPointUrl {
             @PartMap Map<String, String> partMap
 
     );
-  /*  @Multipart
-    @POST("Jobsearch/user_registration.php")
-    Call<ResponseData> user_registration(
+    @Multipart
+    @POST("Jobsearch/post_job.php")
+    Call<ResponseData> post_job(
             @Part MultipartBody.Part file,
             @PartMap Map<String, String> partMap
 
-    );*/
+    );
 
 
 
@@ -61,7 +63,8 @@ public interface EndPointUrl {
     @GET("Jobsearch/login.php")
     Call<ResponseData> user_login(
             @Query("emailid") String emailid,
-            @Query("pwd") String pwd
+            @Query("pwd") String pwd,
+            @Query("utype") String utype
     );
 
 
@@ -97,5 +100,27 @@ public interface EndPointUrl {
             @PartMap Map<String, String> partMap
 
     );
+
+    @GET("Jobsearch/getMyPostJobs.php")
+    Call<List<ListOfJobsPojo>> listofJobs(
+            @Query("email") String email
+    );
+    @GET("Jobsearch/get_job.php")
+    Call<List<EditMyJobsPojo>> EditMyJob
+            (
+                    @Query("email") String email
+            );
+
+    @GET("Jobsearch/update_job.php")
+    Call<ResponseData> update_job(
+
+            @Query("title") String title,
+            @Query("c_name") String c_name,
+            @Query("location") String location,
+            @Query("qualification") String qualification,
+            @Query("about") String about,
+            @Query("salary") String salary
+    );
+
 
 }
