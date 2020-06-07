@@ -6,6 +6,7 @@ package com.jobsearch;
 import com.jobsearch.models.EditMyJobsPojo;
 import com.jobsearch.models.EditProfilePojo;
 import com.jobsearch.models.ListOfJobsPojo;
+import com.jobsearch.models.ListOfUserJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
 import com.jobsearch.models.UploadObject;
 
@@ -105,6 +106,12 @@ public interface EndPointUrl {
     Call<List<ListOfJobsPojo>> listofJobs(
             @Query("email") String email
     );
+
+    @GET("Jobsearch/getAllJobs.php")
+    Call<List<ListOfUserJobsPojo>> getAllJobs(
+    );
+
+
     @GET("Jobsearch/get_job.php")
     Call<List<EditMyJobsPojo>> EditMyJob
             (
@@ -120,6 +127,26 @@ public interface EndPointUrl {
             @Query("qualification") String qualification,
             @Query("about") String about,
             @Query("salary") String salary
+    );
+
+    @GET("Jobsearch/update_jobdetails.php")
+    Call<ResponseData> update_jobdetails(
+            @Query("id") String id,
+            @Query("cname") String cname,
+            @Query("location") String location,
+            @Query("about") String about,
+            @Query("salary") String salary,
+            @Query("work_type") String work_type
+
+
+
+    );
+
+    @GET("Jobsearch/delete_job.php")
+    Call<ResponseData> delete_job(
+            @Query("id") String id
+
+
     );
 
 

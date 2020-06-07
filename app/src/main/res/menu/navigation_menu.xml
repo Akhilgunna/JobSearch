@@ -9,9 +9,9 @@
 <!--        android:icon="@drawable/ic_change_pwd"-->
 <!--        android:title="Job Profile"/>-->
 
-<!--    <item android:id="@+id/new_jobs"-->
-<!--        android:icon="@drawable/ic_change_pwd"-->
-<!--        android:title="New Jobs"/>-->
+    <item android:id="@+id/view_jobs"
+        android:icon="@drawable/ic_viewjobs"
+        android:title="Jobs List"/>
 
 <!--    <item android:id="@+id/search_jobs"-->
 <!--        android:icon="@drawable/ic_change_pwd"-->

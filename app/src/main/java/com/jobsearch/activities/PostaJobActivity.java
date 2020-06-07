@@ -48,6 +48,7 @@ public class PostaJobActivity extends AppCompatActivity implements EasyPermissio
     EditText et_title,et_company_name,et_locoation,et_qulification_req,et_about,et_salary;
     RadioButton radio_parttime,radio_fulltime;
     Button bt_post_job,select_image;
+    Spinner spin_salary,spin_qualification;
     private static final String TAG = RegistrationActivity.class.getSimpleName();
     private static final int REQUEST_GALLERY_CODE = 200;
     private static final int READ_REQUEST_CODE = 300;
@@ -69,11 +70,14 @@ public class PostaJobActivity extends AppCompatActivity implements EasyPermissio
         et_title=(EditText)findViewById(R.id.et_title);
         et_company_name=(EditText)findViewById(R.id.et_company_name);
         et_locoation=(EditText)findViewById(R.id.et_locoation);
-        et_qulification_req=(EditText)findViewById(R.id.et_qulification_req);
+        //et_qulification_req=(EditText)findViewById(R.id.et_qulification_req);
         et_about=(EditText)findViewById(R.id.et_about);
-        et_salary=(EditText)findViewById(R.id.et_salary);
+        //et_salary=(EditText)findViewById(R.id.et_salary);
         radio_parttime=(RadioButton)findViewById(R.id.radio_parttime);
         radio_fulltime=(RadioButton)findViewById(R.id.radio_fulltime);
+
+        spin_salary=(Spinner)findViewById(R.id.spin_salary);
+        spin_qualification=(Spinner)findViewById(R.id.spin_qualification);
 
         select_image=(Button)findViewById(R.id.select_image);
         bt_post_job=(Button)findViewById(R.id.bt_post_job);
@@ -152,9 +156,9 @@ public class PostaJobActivity extends AppCompatActivity implements EasyPermissio
         map.put("title",et_title.getText().toString());
         map.put("company_name",et_company_name.getText().toString());
         map.put("locoation",et_locoation.getText().toString());
-        map.put("qualification",et_qulification_req.getText().toString());
+        map.put("qualification",spin_qualification.getSelectedItem().toString());
         map.put("about", et_about.getText().toString());
-        map.put("salary",et_salary.getText().toString());
+        map.put("salary",spin_salary.getSelectedItem().toString());
         map.put("work_type",worktype);
         map.put("post_by",session);
 

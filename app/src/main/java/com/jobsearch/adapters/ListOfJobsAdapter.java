@@ -2,6 +2,7 @@ package com.jobsearch.adapters;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,13 @@ import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
+import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
+import com.jobsearch.ResponseData;
+import com.jobsearch.RetrofitInstance;
+import com.jobsearch.activities.EditListOfJobsActivity;
+import com.jobsearch.activities.ListOfJobsActivity;
+import com.jobsearch.activities.MyEmployerProfileActivity;
 import com.jobsearch.models.ListOfJobsPojo;
 
 import java.util.List;
@@ -53,8 +60,10 @@ public class ListOfJobsAdapter extends BaseAdapter {
         View obj2=obj1.inflate(R.layout.list_of_jobs_adapter,null);
 
 
-        /*ImageView iv=(ImageView)obj2.findViewById(R.id.iv);
-        Glide.with(cnt).load("http://babysitterprojectapp.com/BabySitter/"+ar.get(pos).getImg_url()).into(iv);*/
+
+        TextView tv_jid=(TextView)obj2.findViewById(R.id.tv_jid);
+        tv_jid.setText("Job Id  :"+ar.get(pos).getId());
+
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
         tv_company_title.setText("Name  :"+ar.get(pos).getC_name());
@@ -78,18 +87,49 @@ public class ListOfJobsAdapter extends BaseAdapter {
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //serverData(ar.get(pos).getId(),"Rejected");
+                serverData(ar.get(pos).getId());
             }
         });
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //serverData(ar.get(pos).getId(),"Accepted");
+                Intent intent=new Intent(cnt, EditListOfJobsActivity.class);
+                intent.putExtra("id",ar.get(pos).getId());
+                intent.putExtra("cname",ar.get(pos).getC_name());
+                intent.putExtra("salary",ar.get(pos).getSalary());
+                intent.putExtra("work_type",ar.get(pos).getWork_type());
+                intent.putExtra("location",ar.get(pos).getLocation());
+                intent.putExtra("about",ar.get(pos).getAbout());
+                cnt.startActivity(intent);
             }
         });
         return obj2;
     }
+    ProgressDialog progressDialog;
+    public void serverData(String id){
+        progressDialog = new ProgressDialog(cnt);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+        EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<ResponseData> call = service.delete_job(id);
+        call.enqueue(new Callback<ResponseData>() {
+            @Override
+            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                progressDialog.dismiss();
+                if(response.body()==null){
+                    Toast.makeText(cnt,"Server issue",Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent=new Intent(cnt, ListOfJobsActivity.class);
+                    cnt.startActivity(intent);
+                    Toast.makeText(cnt,"Status updated successfully",Toast.LENGTH_SHORT).show();
 
-
-
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseData> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(cnt, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

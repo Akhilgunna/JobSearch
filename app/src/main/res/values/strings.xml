@@ -22,5 +22,31 @@
 
 
     <string name="covid_note">Note :- Due to Covid-19 would you like to indicate your interview online</string>
+
+    <string-array name="spin_salary">
+        <item>Select below</item>
+        <item>10$-12$</item>
+       <item>12$-15$</item>
+        <item>15$-17$</item>
+        <item>17$-19$</item>
+        <item>19$-21$</item>
+        <item>21$-23$</item>
+        <item>23$-25$</item>
+        <item>25$-27$</item>
+        <item>27-30$</item>
+        <item>More then 30$</item>
+    </string-array>
+
+    <string-array name="spin_qualif">
+        <item>Select below</item>
+        <item>None or Lessthen Secondary(High School)</item>
+        <item>Secondary Diploma</item>
+        <item>One Year Program at a University</item>
+        <item>Two Year Program at a University</item>
+        <item>Bachelor\'s Degree(Three or more years)</item>
+        <item>Two or more Certificates Diplomas</item>
+        <item>Master\'s Degree or Professional Degree</item>
+        <item>Doctoral level university degree(PHD)</item>
+    </string-array>
 </resources>
 

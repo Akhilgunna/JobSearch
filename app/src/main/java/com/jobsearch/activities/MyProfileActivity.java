@@ -135,10 +135,10 @@ public class MyProfileActivity extends AppCompatActivity {
                         Intent intent=new Intent(getApplicationContext(), MyProfileActivity.class);
                         startActivity(intent);
                         break;
-//                    case R.id.job_profile:
-//                        Intent intent1=new Intent(getApplicationContext(), MyProfileActivity.class);
-//                        startActivity(intent1);
-//                        break;
+                    case R.id.view_jobs:
+                        Intent intent1=new Intent(getApplicationContext(), ListOfUserJobsActivity.class);
+                        startActivity(intent1);
+                        break;
 //
 //                    case R.id.search_jobs:
 //                        Intent searchjobs=new Intent(getApplicationContext(), MyProfileActivity.class);

@@ -9,33 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="Job Title"
-            android:textSize="18dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="left"
-            android:layout_marginLeft="30dp"
-            android:textColor="#292828"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/et_title"
-            android:singleLine="true"
-            android:background="#FFFFFF"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
-
-
 
         <TextView
             android:id="@+id/tv_first_name"
@@ -65,92 +38,6 @@
             android:layout_marginRight="30dp"
             android:layout_height="2dp"
             android:background="#E0E7E1"/>
-
-
-        <TextView
-            android:id="@+id/tv_locoation"
-            android:text="Location"
-            android:textSize="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="left"
-            android:layout_marginLeft="30dp"
-            android:textColor="#292828"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <EditText
-            android:id="@+id/et_locoation"
-            android:singleLine="true"
-            android:background="#FFFFFF"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
-
-        <TextView
-            android:id="@+id/tv_qualification"
-            android:text="Qualification Required"
-            android:textSize="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="left"
-            android:layout_marginLeft="30dp"
-            android:textColor="#292828"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <Spinner
-            android:id="@+id/spin_qualification"
-            android:singleLine="true"
-            android:background="#FFFFFF"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/spin_qualif"
-            android:scrollbars="none"
-            android:spinnerMode="dropdown"/>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
-
-        <TextView
-            android:id="@+id/tv_about"
-            android:text="About  :"
-            android:textSize="18dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:textColor="#000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-        <EditText
-            android:id="@+id/et_about"
-            android:minLines="5"
-            android:gravity="start"
-            android:background="#FFFFFF"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
 
         <TextView
@@ -184,8 +71,6 @@
             android:layout_marginRight="30dp"
             android:layout_height="2dp"
             android:background="#E0E7E1"/>
-
-
 
         <TextView
             android:id="@+id/tv_work_type"
@@ -224,9 +109,93 @@
         </RadioGroup>
 
 
+        <TextView
+            android:id="@+id/tv_locoation"
+            android:text="Location"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-        <Button
+        <EditText
+            android:id="@+id/et_locoation"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>
+
+       <!-- <TextView
+            android:id="@+id/tv_qualification"
+            android:text="Qualification Required"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Spinner
+            android:id="@+id/spin_qualification"
+            android:singleLine="true"
+            android:background="#FFFFFF"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/spin_qualif"
+            android:scrollbars="none"
+            android:spinnerMode="dropdown"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="2dp"
+            android:background="#E0E7E1"/>-->
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:text="About  :"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <EditText
+            android:id="@+id/et_about"
+            android:minLines="5"
+            android:gravity="start"
+            android:background="#FFFFFF"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+     <!--   <Button
             android:id="@+id/select_image"
             android:text="Upload Company Icon"
             android:padding="18dp"
@@ -237,12 +206,12 @@
             android:textColor="#171818"
             android:textAllCaps="false"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"/>-->
 
 
         <Button
             android:id="@+id/bt_post_job"
-            android:text="Post Your Job"
+            android:text="Update Your Job"
             android:padding="18dp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="70dp"
