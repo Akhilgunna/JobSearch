@@ -29,10 +29,16 @@
         <activity android:name=".activities.ImageFunctionality" />
         <activity android:name=".activities.RegistrationActivity" />
         <activity android:name=".activities.MyProfileActivity" />
+        <activity android:name=".activities.ApplyJobActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".activities.EditYourProfileActivity" />
         <activity android:name=".activities.EditListOfJobsActivity"></activity>
         <activity android:name=".activities.ListOfUserJobsActivity"></activity>
+        <activity android:name=".activities.FillTheDetailsFormActivity"></activity>
+        <activity android:name=".activities.ListOfAppliedJobsActivity"></activity>
+        <activity android:name=".activities.CheckAppliedJobsActivity"></activity>
+
+
     </application>
 
 </manifest>

@@ -3,8 +3,10 @@ package com.jobsearch;
 
 
 
+import com.jobsearch.models.CheckeAppliedJobsPojo;
 import com.jobsearch.models.EditMyJobsPojo;
 import com.jobsearch.models.EditProfilePojo;
+import com.jobsearch.models.ListOfAppliedJobsPojo;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
@@ -25,18 +27,6 @@ import retrofit2.http.Query;
 public interface EndPointUrl {
 
 
-//    @GET("Jobsearch/user_registration.php")
-//    Call<ResponseData> ur(
-//            @Query("fname") String fname,
-//            @Query("phone") String phone,
-//            @Query("emailid") String emailid,
-//            @Query("lname") String lname,
-//            @Query("pwd") String pwd,
-//            @Query("gender") String gender,
-//            @Query("utype") String utype
-//
-//    );
-
     @Multipart
     @POST("Jobsearch/user_registration.php")
     Call<ResponseData> user_registration(
@@ -51,8 +41,6 @@ public interface EndPointUrl {
             @PartMap Map<String, String> partMap
 
     );
-
-
 
 
     @GET("Jobsearch/changepassword.php")
@@ -107,6 +95,11 @@ public interface EndPointUrl {
             @Query("email") String email
     );
 
+    @GET("Jobsearch/getMyPostJobs.php")
+    Call<List<CheckeAppliedJobsPojo>> check_applied_jobs(
+            @Query("email") String email
+    );
+
     @GET("Jobsearch/getAllJobs.php")
     Call<List<ListOfUserJobsPojo>> getAllJobs(
     );
@@ -139,15 +132,26 @@ public interface EndPointUrl {
             @Query("work_type") String work_type
 
 
-
     );
 
     @GET("Jobsearch/delete_job.php")
     Call<ResponseData> delete_job(
             @Query("id") String id
 
+    );
+
+    @Multipart
+    @POST("Jobsearch/applyJob.php")
+    Call<ResponseData> apply_job(
+            @Part MultipartBody.Part file,
+            @PartMap Map<String, String> partMap
 
     );
+
+
+
+    @GET("/Jobsearch/getAppliedJobs.php")
+    Call<List<ListOfAppliedJobsPojo>> listOfAppliedJobs(@Query("id") String id);
 
 
 }

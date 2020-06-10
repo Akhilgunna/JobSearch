@@ -17,19 +17,23 @@ import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.ResponseData;
 import com.jobsearch.RetrofitInstance;
+import com.jobsearch.activities.ApplyJobActivity;
 import com.jobsearch.activities.EditListOfJobsActivity;
+import com.jobsearch.activities.JobDetailsActivity;
 import com.jobsearch.activities.ListOfJobsActivity;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListOfUserJobsAdapter extends BaseAdapter {
-    List<ListOfUserJobsPojo> ar;
+    List<ListOfUserJobsPojo> ar9,ar;
     Context cnt;
     String str="http://parttimejobs.site/Jobsearch/";
     public ListOfUserJobsAdapter(List<ListOfUserJobsPojo> ar, Context cnt)
@@ -61,7 +65,7 @@ public class ListOfUserJobsAdapter extends BaseAdapter {
         ImageView iv_image_view=(ImageView)obj2.findViewById(R.id.iv_image_view);
         Glide.with(cnt).load(str+ar.get(pos).getImg_photo()).into(iv_image_view);
 
-       // Toast.makeText(cnt,"test"+str+ar.get(pos).getImg_photo(),Toast.LENGTH_LONG).show();
+        Toast.makeText(cnt,"test"+str+ar.get(pos).getImg_photo(),Toast.LENGTH_LONG).show();
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
         tv_company_title.setText("Name  :"+ar.get(pos).getC_name());
@@ -80,54 +84,39 @@ public class ListOfUserJobsAdapter extends BaseAdapter {
 
 
 
-        /*Button btn_edit=(Button)obj2.findViewById(R.id.btn_edit);
-        Button btn_delete=(Button)obj2.findViewById(R.id.btn_delete);
-        btn_delete.setOnClickListener(new View.OnClickListener() {
+        Button btn_apply=(Button)obj2.findViewById(R.id.btn_apply);
+        btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                serverData(ar.get(pos).getId());
+                Intent intent=new Intent(cnt, ApplyJobActivity.class);
+                intent.putExtra("img_logo",str+ar.get(pos).getImg_photo());
+                intent.putExtra("about",ar.get(pos).getAbout());
+                intent.putExtra("availability",ar.get(pos).getAvailability());
+                intent.putExtra("title",ar.get(pos).getTitle());
+                intent.putExtra("id",ar.get(pos).getId());
+                cnt.startActivity(intent);
+
             }
         });
-        btn_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(cnt, EditListOfJobsActivity.class);
-                intent.putExtra("id",ar.get(pos).getId());
-                intent.putExtra("cname",ar.get(pos).getC_name());
-                intent.putExtra("salary",ar.get(pos).getSalary());
-                intent.putExtra("work_type",ar.get(pos).getWork_type());
-                intent.putExtra("location",ar.get(pos).getLocation());
-                intent.putExtra("about",ar.get(pos).getAbout());
-                cnt.startActivity(intent);
-            }
-        });*/
         return obj2;
     }
-    /*ProgressDialog progressDialog;
-    public void serverData(String id){
-        progressDialog = new ProgressDialog(cnt);
-        progressDialog.setMessage("Loading....");
-        progressDialog.show();
-        EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<ResponseData> call = service.delete_job(id);
-        call.enqueue(new Callback<ResponseData>() {
-            @Override
-            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-                progressDialog.dismiss();
-                if(response.body()==null){
-                    Toast.makeText(cnt,"Server issue",Toast.LENGTH_SHORT).show();
-                }else {
-                    Intent intent=new Intent(cnt, ListOfJobsActivity.class);
-                    cnt.startActivity(intent);
-                    Toast.makeText(cnt,"Status updated successfully",Toast.LENGTH_SHORT).show();
-
+   /* public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        ar.clear();
+        if (charText.length() == 0) {
+            ar.addAll(ar9);
+        }
+        else
+        {
+            for (ListOfUserJobsPojo wp : ar9)
+            {
+                if (wp.getLocation().toLowerCase(Locale.getDefault()).contains(charText)||wp.getC_name().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    ar.add(wp);
                 }
             }
-            @Override
-            public void onFailure(Call<ResponseData> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(cnt, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }
+        notifyDataSetChanged();
     }*/
+
 }

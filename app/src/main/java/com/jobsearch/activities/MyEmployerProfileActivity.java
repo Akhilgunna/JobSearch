@@ -143,11 +143,7 @@ public class MyEmployerProfileActivity extends AppCompatActivity {
                         Intent intent=new Intent(getApplicationContext(), MyEmployerProfileActivity.class);
                         startActivity(intent);
                         break;
-//                    case R.id.job_profile:
-//                        Intent intent1=new Intent(getApplicationContext(), MyProfileActivity.class);
-//                        startActivity(intent1);
-//                        break;
-//
+
                     case R.id.view_jobs:
                         Intent list=new Intent(getApplicationContext(), ListOfJobsActivity.class);
                         startActivity(list);
@@ -157,6 +153,13 @@ public class MyEmployerProfileActivity extends AppCompatActivity {
                         Intent post=new Intent(getApplicationContext(), PostaJobActivity.class);
                         startActivity(post);
                         break;
+
+                    case R.id.applied_jobs:
+                        Intent applied_jobs=new Intent(getApplicationContext(), CheckAppliedJobsActivity.class);
+                        startActivity(applied_jobs);
+                        break;
+
+
 
                     case R.id.logout:
                         Intent logout=new Intent(getApplicationContext(), LoginActivity.class);

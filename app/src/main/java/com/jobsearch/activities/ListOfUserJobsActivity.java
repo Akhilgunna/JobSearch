@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,11 +20,13 @@ import com.jobsearch.RetrofitInstance;
 import com.jobsearch.Utils;
 import com.jobsearch.adapters.ListOfJobsAdapter;
 import com.jobsearch.adapters.ListOfUserJobsAdapter;
+//import com.jobsearch.adapters.SearchAAdapter;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,10 +38,12 @@ public class ListOfUserJobsActivity extends AppCompatActivity {
     List<ListOfUserJobsPojo> al;
     SharedPreferences sharedPreferences;
     String uname;
+    EditText search;
+    ListOfUserJobsAdapter listOfUserJobsAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_of_jobs);
+        setContentView(R.layout.activity_list_of_user_jobs);
 
       /*  sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         uname = sharedPreferences.getString("user_name", "");*/
@@ -46,6 +53,26 @@ public class ListOfUserJobsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         list_view=(ListView)findViewById(R.id.list_view);
+        /*search=(EditText)findViewById(R.id.search);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+                String text = search.getText().toString().toLowerCase(Locale.getDefault());
+                listOfUserJobsAdapter.filter(text);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+        });*/
         al= new ArrayList<>();
 
         serverData();
@@ -66,6 +93,8 @@ public class ListOfUserJobsActivity extends AppCompatActivity {
                     Toast.makeText(ListOfUserJobsActivity.this,"No data found",Toast.LENGTH_SHORT).show();
                 }else {
                     al = response.body();
+                    /*listOfUserJobsAdapter=new ListOfUserJobsAdapter(al, ListOfUserJobsActivity.this);
+                    list_view.setAdapter(listOfUserJobsAdapter);*/
                     list_view.setAdapter(new ListOfUserJobsAdapter(al, ListOfUserJobsActivity.this));
                 }
             }

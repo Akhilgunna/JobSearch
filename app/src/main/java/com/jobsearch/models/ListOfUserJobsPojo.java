@@ -28,10 +28,14 @@ public class ListOfUserJobsPojo {
     @SerializedName("qualification")
     private String qualification ;
 
+    @SerializedName("availability")
+    private String availability;
+
+
     @SerializedName("img_photo")
     private String img_photo;
 
-    public ListOfUserJobsPojo(String Id, String c_name, String salary, String work_type, String location, String about,String title,String qualification,String img_photo) {
+    public ListOfUserJobsPojo(String Id, String c_name, String salary, String work_type, String location, String about,String title,String qualification,String availability,String img_photo) {
 
      this.setSalary(salary);
      this.setWork_type(work_type);
@@ -41,6 +45,7 @@ public class ListOfUserJobsPojo {
      this.setId(Id);
      this.setTitle(title);
      this.setQualification(qualification);
+     this.setAvailability(availability);
      this.setImg_photo(img_photo);
 
     }
@@ -119,5 +124,13 @@ public class ListOfUserJobsPojo {
 
     public void setImg_photo(String img_photo) {
         this.img_photo = img_photo;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
     }
 }
