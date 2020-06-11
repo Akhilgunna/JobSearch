@@ -15,18 +15,21 @@ import com.bumptech.glide.Glide;
 import com.jobsearch.R;
 import com.jobsearch.activities.ApplyJobActivity;
 import com.jobsearch.models.ListOfUserJobsPojo;
-import com.jobsearch.models.NewUserJobsPojo;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class NewUserJobsAdapter extends BaseAdapter {
-    List<NewUserJobsPojo> ar;
+public class SearchJobsAdapter extends BaseAdapter {
+    List<ListOfUserJobsPojo> ar9,ar;
     Context cnt;
     String str="http://parttimejobs.site/Jobsearch/";
-    public NewUserJobsAdapter(List<NewUserJobsPojo> ar, Context cnt)
+    public SearchJobsAdapter(List<ListOfUserJobsPojo> ar, Context cnt)
     {
-        this.ar=ar;
         this.cnt=cnt;
+        this.ar9=ar;
+        this.ar = new ArrayList<ListOfUserJobsPojo>();
+        ar.addAll(ar);
     }
     @Override
     public int getCount() {
@@ -47,10 +50,12 @@ public class NewUserJobsAdapter extends BaseAdapter {
     public View getView(final int pos, View view, ViewGroup viewGroup)
     {
         LayoutInflater obj1 = (LayoutInflater)cnt.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View obj2=obj1.inflate(R.layout.adapter_new_jobs,null);
+        View obj2=obj1.inflate(R.layout.list_of_user_jobs_adapter,null);
 
         ImageView iv_image_view=(ImageView)obj2.findViewById(R.id.iv_image_view);
         Glide.with(cnt).load(str+ar.get(pos).getImg_photo()).into(iv_image_view);
+
+        //Toast.makeText(cnt,"test"+str+ar.get(pos).getImg_photo(),Toast.LENGTH_LONG).show();
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
         tv_company_title.setText("Name  :"+ar.get(pos).getC_name());
@@ -85,7 +90,7 @@ public class NewUserJobsAdapter extends BaseAdapter {
         });
         return obj2;
     }
-   /* public void filter(String charText) {
+    public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
         ar.clear();
         if (charText.length() == 0) {
@@ -95,13 +100,13 @@ public class NewUserJobsAdapter extends BaseAdapter {
         {
             for (ListOfUserJobsPojo wp : ar9)
             {
-                if (wp.getLocation().toLowerCase(Locale.getDefault()).contains(charText)||wp.getC_name().toLowerCase(Locale.getDefault()).contains(charText))
+                if (wp.getLocation().toLowerCase(Locale.getDefault()).contains(charText)||wp.getC_name().toLowerCase(Locale.getDefault()).contains(charText) ||wp.getSalary().toLowerCase(Locale.getDefault()).contains(charText))
                 {
                     ar.add(wp);
                 }
             }
         }
         notifyDataSetChanged();
-    }*/
+    }
 
 }
