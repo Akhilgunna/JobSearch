@@ -139,16 +139,17 @@ public class MyProfileActivity extends AppCompatActivity {
                         Intent intent1=new Intent(getApplicationContext(), ListOfUserJobsActivity.class);
                         startActivity(intent1);
                         break;
-//
-//                    case R.id.search_jobs:
-//                        Intent searchjobs=new Intent(getApplicationContext(), MyProfileActivity.class);
-//                        startActivity(searchjobs);
-//                        break;
-//
-//                    case R.id.new_jobs:
-//                        Intent changepwd=new Intent(getApplicationContext(), NewJobsActivity.class);
-//                        startActivity(changepwd);
-//                        break;
+
+
+                    case R.id.new_jobs_list:
+                         Intent changepwd=new Intent(getApplicationContext(), NewUserJobsActivity.class);
+                         startActivity(changepwd);
+                         break;
+
+                    case R.id.search_jobs:
+                        Intent searchjobs=new Intent(getApplicationContext(), SearchJobsActivity.class);
+                        startActivity(searchjobs);
+                        break;
 
                     case R.id.logout:
                         Intent logout=new Intent(getApplicationContext(), LoginActivity.class);

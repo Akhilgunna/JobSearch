@@ -10,6 +10,7 @@ import com.jobsearch.models.ListOfAppliedJobsPojo;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
+import com.jobsearch.models.NewUserJobsPojo;
 import com.jobsearch.models.UploadObject;
 
 import java.util.List;
@@ -102,6 +103,12 @@ public interface EndPointUrl {
 
     @GET("Jobsearch/getAllJobs.php")
     Call<List<ListOfUserJobsPojo>> getAllJobs(
+    );
+
+
+
+    @GET("Jobsearch/getNewJobs.php")
+    Call<List<NewUserJobsPojo>> newuserJobs(
     );
 
 

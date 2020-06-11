@@ -65,7 +65,6 @@ public class ListOfUserJobsAdapter extends BaseAdapter {
         ImageView iv_image_view=(ImageView)obj2.findViewById(R.id.iv_image_view);
         Glide.with(cnt).load(str+ar.get(pos).getImg_photo()).into(iv_image_view);
 
-        Toast.makeText(cnt,"test"+str+ar.get(pos).getImg_photo(),Toast.LENGTH_LONG).show();
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
         tv_company_title.setText("Name  :"+ar.get(pos).getC_name());
@@ -100,23 +99,5 @@ public class ListOfUserJobsAdapter extends BaseAdapter {
         });
         return obj2;
     }
-   /* public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        ar.clear();
-        if (charText.length() == 0) {
-            ar.addAll(ar9);
-        }
-        else
-        {
-            for (ListOfUserJobsPojo wp : ar9)
-            {
-                if (wp.getLocation().toLowerCase(Locale.getDefault()).contains(charText)||wp.getC_name().toLowerCase(Locale.getDefault()).contains(charText))
-                {
-                    ar.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }*/
 
 }
