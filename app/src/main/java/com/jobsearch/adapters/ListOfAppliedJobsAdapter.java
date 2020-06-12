@@ -1,6 +1,9 @@
 package com.jobsearch.adapters;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -8,11 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jobsearch.R;
 import com.jobsearch.models.ListOfAppliedJobsPojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListOfAppliedJobsAdapter extends BaseAdapter {
@@ -78,14 +85,32 @@ public class ListOfAppliedJobsAdapter extends BaseAdapter {
                 Uri uri = Uri.parse("http://docs.google.com/viewer?url=" + str+ar.get(pos).getResume());
                 intent.setDataAndType(uri, "text/html");
                 cnt.startActivity(intent);
-
-
             }
         });
 
+        final RadioButton radio_in_progr=(RadioButton)obj2.findViewById(R.id.radio_in_progr);
+        final RadioButton radio_selected=(RadioButton)obj2.findViewById(R.id.radio_selected);
+        final RadioButton radio_reje=(RadioButton)obj2.findViewById(R.id.radio_reje);
 
 
+        Button btn_status=(Button)obj2.findViewById(R.id.btn_status);
+        btn_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (radio_in_progr.isChecked()){
+                    //serverData(ar.get(pos).getId(),"In Progress");
+                }
+                else if (radio_selected.isChecked()){
+                    //serverData(ar.get(pos).getId(),"Selected");
+                }
+                else {
+                    //serverData(ar.get(pos).getId(),"Rejected");
+                }
+                Toast.makeText(cnt, "Status is Updated Succussfully", Toast.LENGTH_SHORT).show();
 
+            }
+        });
         return obj2;
     }
+
 }

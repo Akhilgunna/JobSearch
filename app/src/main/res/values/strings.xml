@@ -48,5 +48,31 @@
         <item>Master\'s Degree or Professional Degree</item>
         <item>Doctoral level university degree(PHD)</item>
     </string-array>
+
+    <string-array name="spin_exp">
+        <item>Choose Experience</item>
+        <item>0 Years</item>
+        <item>1 Years</item>
+        <item>2 Years</item>
+        <item>3 Years</item>
+        <item>4 Years</item>
+        <item>5 Years</item>
+        <item>6 Years</item>
+        <item>7 Years</item>
+        <item>8 Years</item>
+        <item>9 Years</item>
+        <item>10 Years</item>
+
+    </string-array>
+
+    <string-array name="spin_age">
+        <item>Select below</item>
+        <item>18 to 25</item>
+        <item>25 to 30</item>
+        <item>30 to 35</item>
+        <item>35 to 40</item>
+        <item>40 to 45</item>
+        <item>45 to 50</item>
+    </string-array>
 </resources>
 

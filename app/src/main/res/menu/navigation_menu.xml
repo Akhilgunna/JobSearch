@@ -5,18 +5,21 @@
         android:icon="@drawable/ic_user"
         android:title="My Profile"/>
 
+    <item android:id="@+id/view_myjobs"
+        android:icon="@drawable/ic_msg"
+        android:title="My Jobs"/>
 
     <item android:id="@+id/view_jobs"
         android:icon="@drawable/ic_viewjobs"
         android:title="Jobs List"/>
 
         <item android:id="@+id/new_jobs_list"
-            android:icon="@drawable/ic_viewjobs"
+            android:icon="@drawable/ic_newjobs"
             android:title="New Jobs List"/>
 
 
         <item android:id="@+id/search_jobs"
-        android:icon="@drawable/ic_viewjobs"
+        android:icon="@drawable/ic_search"
         android:title="Search Jobs"/>
 
     <item android:id="@+id/logout"
