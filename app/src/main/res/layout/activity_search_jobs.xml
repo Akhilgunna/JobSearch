@@ -26,25 +26,23 @@
         android:layout_height="wrap_content">
 
 
-        <EditText
-            android:id="@+id/et_part_time"
+        <Button
+            android:id="@+id/btn_part_time"
             android:background="@drawable/edittext_search"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:textSize="15dp"
-            android:text="     Part_time     "
-            android:padding="8dp"
+            android:text="       Part_time     "
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/et_full_time"
+        <Button
+            android:id="@+id/btn_full_time"
             android:background="@drawable/edittext_search"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:textSize="15dp"
             android:text="     Full_time    "
-            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -96,8 +94,8 @@
             android:layout_weight="0"
             android:text="Salary  :" />
 
-        <EditText
-            android:id="@+id/et_salary_start"
+        <Button
+            android:id="@+id/btn_salary_start"
             android:background="@drawable/edittext_search"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
@@ -108,8 +106,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/et_salary_end"
+        <Button
+            android:id="@+id/btn_salary_end"
             android:background="@drawable/edittext_search"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"

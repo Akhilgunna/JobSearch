@@ -46,13 +46,7 @@ public class ListOfJobsActivity extends AppCompatActivity {
 
         list_view=(ListView)findViewById(R.id.list_view);
         al= new ArrayList<>();
-//        al.add(new ListOfJobsPojo("Apple","40000","Full Time","ABC","Xyz"));
-//        al.add(new ListOfJobsPojo("Apple","40000","Full Time","ABC","Xyz"));
-//        al.add(new ListOfJobsPojo("Apple","40000","Full Time","ABC","Xyz"));
-//        al.add(new ListOfJobsPojo("Apple","40000","Full Time","ABC","Xyz"));
-//        al.add(new ListOfJobsPojo("Apple","40000","Full Time","ABC","Xyz"));
 
-       // list_view.setAdapter(new ListOfJobsAdapter(al, ListOfJobsActivity.this));
         serverData();
     }
     public void serverData(){

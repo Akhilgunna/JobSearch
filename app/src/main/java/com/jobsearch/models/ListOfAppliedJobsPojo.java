@@ -4,9 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListOfAppliedJobsPojo {
 
+    @SerializedName("id")
+    private String id;
+
     @SerializedName("job_title")
     private String job_title;
-
 
     @SerializedName("name")
     private String name;
@@ -36,7 +38,7 @@ public class ListOfAppliedJobsPojo {
     private String time;
 
 
-    public ListOfAppliedJobsPojo(String job_title,String name, String age, String exp, String email, String location, String postal, String resume, String dat, String time){
+    public ListOfAppliedJobsPojo(String id,String job_title,String name, String age, String exp, String email, String location, String postal, String resume, String dat, String time){
         this.job_title=job_title;
         this.setName(name);
         this.setAge(age);
@@ -47,6 +49,7 @@ public class ListOfAppliedJobsPojo {
         this.setResume(resume);
         this.setDat(dat);
         this.setTime(time);
+        this.setId(id);
 
     }
 
@@ -123,5 +126,13 @@ public class ListOfAppliedJobsPojo {
 
     public void setDat(String dat) {
         this.dat = dat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

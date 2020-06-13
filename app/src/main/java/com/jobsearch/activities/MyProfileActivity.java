@@ -140,6 +140,10 @@ public class MyProfileActivity extends AppCompatActivity {
                         startActivity(intent1);
                         break;
 
+                    case R.id.view_myjobs:
+                        Intent view_jobs=new Intent(getApplicationContext(), UserJobStatusActivity.class);
+                        startActivity(view_jobs);
+                        break;
 
                     case R.id.new_jobs_list:
                          Intent changepwd=new Intent(getApplicationContext(), NewUserJobsActivity.class);

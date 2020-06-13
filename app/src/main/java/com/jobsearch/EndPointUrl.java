@@ -12,6 +12,7 @@ import com.jobsearch.models.ListOfUserJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
 import com.jobsearch.models.NewUserJobsPojo;
 import com.jobsearch.models.UploadObject;
+import com.jobsearch.models.UserJobStatusPojo;
 
 import java.util.List;
 import java.util.Map;
@@ -96,6 +97,13 @@ public interface EndPointUrl {
             @Query("email") String email
     );
 
+
+
+    @GET("/Jobsearch/myAppliedJobsStatus.php?")
+    Call<List<UserJobStatusPojo>> myAppliedJobsStatus(
+            @Query("email") String email
+    );
+
     @GET("Jobsearch/getMyPostJobs.php")
     Call<List<CheckeAppliedJobsPojo>> check_applied_jobs(
             @Query("email") String email
@@ -158,7 +166,16 @@ public interface EndPointUrl {
 
 
     @GET("/Jobsearch/getAppliedJobs.php")
-    Call<List<ListOfAppliedJobsPojo>> listOfAppliedJobs(@Query("id") String id);
+    Call<List<ListOfAppliedJobsPojo>> listOfAppliedJobs(
+            @Query("id") String id
+    );
+
+
+    @GET("/Jobsearch/updateStatus.php?")
+    Call<ResponseData> updateStatus(
+            @Query("id") String id,
+            @Query("status") String status
+    );
 
 
 }

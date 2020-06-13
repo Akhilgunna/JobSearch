@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class SearchJobsActivity extends AppCompatActivity {
     String uname;
     EditText search;
     SearchJobsAdapter searchJobsAdapter;
+    Button btn_part_time;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ public class SearchJobsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         list_view=(ListView)findViewById(R.id.list_view);
+        btn_part_time=(Button)findViewById(R.id.btn_part_time);
         search=(EditText)findViewById(R.id.search);
         search.addTextChangedListener(new TextWatcher() {
             @Override

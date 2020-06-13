@@ -2,6 +2,7 @@ package com.jobsearch.adapters;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,15 +17,23 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
+import com.jobsearch.ResponseData;
+import com.jobsearch.RetrofitInstance;
 import com.jobsearch.models.ListOfAppliedJobsPojo;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ListOfAppliedJobsAdapter extends BaseAdapter {
     List<ListOfAppliedJobsPojo> ar;
     Context cnt;
+    String str_id;
     String str="http://parttimejobs.site/Jobsearch/";
 
     public ListOfAppliedJobsAdapter(List<ListOfAppliedJobsPojo> ar, Context cnt) {
@@ -98,19 +107,45 @@ public class ListOfAppliedJobsAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 if (radio_in_progr.isChecked()){
-                    //serverData(ar.get(pos).getId(),"In Progress");
+                    serverData(ar.get(pos).getId(),"In Progress");
+                    //Toast.makeText(cnt, "Status "+str_id, Toast.LENGTH_SHORT).show();
                 }
                 else if (radio_selected.isChecked()){
-                    //serverData(ar.get(pos).getId(),"Selected");
+                    serverData(ar.get(pos).getId(),"Selected");
                 }
                 else {
-                    //serverData(ar.get(pos).getId(),"Rejected");
+                    serverData(ar.get(pos).getId(),"Rejected");
                 }
-                Toast.makeText(cnt, "Status is Updated Succussfully", Toast.LENGTH_SHORT).show();
+
 
             }
         });
         return obj2;
+    }
+    ProgressDialog progressDialog;
+    public void serverData(String id,String status){
+        progressDialog = new ProgressDialog(cnt);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+        EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<ResponseData> call = service.updateStatus(id,status);
+        call.enqueue(new Callback<ResponseData>() {
+            @Override
+            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                progressDialog.dismiss();
+                if(response.body()==null){
+                    Toast.makeText(cnt,"Server issue",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(cnt,"Status updated successfully",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseData> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(cnt, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

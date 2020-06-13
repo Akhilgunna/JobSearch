@@ -26,6 +26,7 @@ public class ListOfAppliedJobsActivity extends AppCompatActivity {
     ListView list_view;
     ProgressDialog progressDialog;
     List<ListOfAppliedJobsPojo> a1;
+    String str_id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,8 @@ public class ListOfAppliedJobsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        str_id=getIntent().getStringExtra("id");
+        //Toast.makeText(ListOfAppliedJobsActivity.this,"GET ID"+str_id,Toast.LENGTH_LONG).show();
         list_view=(ListView)findViewById(R.id.list_view);
         a1= new ArrayList<>();
         /*a1.add(new ListOfAppliedJobsPojo("Parameswar Reddy","23","3 Years","testing@gmail.com","Xyz","516321","Uploaded","09_06_2020","9:00 AM")); //static data
@@ -53,7 +56,7 @@ public class ListOfAppliedJobsActivity extends AppCompatActivity {
         progressDialog.show();
 
         EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<List<ListOfAppliedJobsPojo>> call = service.listOfAppliedJobs(getIntent().getStringExtra("id"));
+        Call<List<ListOfAppliedJobsPojo>> call = service.listOfAppliedJobs(str_id);
         call.enqueue(new Callback<List<ListOfAppliedJobsPojo>>() {
             @Override
             public void onResponse(Call<List<ListOfAppliedJobsPojo>> call, Response<List<ListOfAppliedJobsPojo>> response) {

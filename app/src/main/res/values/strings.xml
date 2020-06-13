@@ -39,14 +39,14 @@
 
     <string-array name="spin_qualif">
         <item>Select below</item>
-        <item>None or Lessthen Secondary(High School)</item>
+        <item>None or Lessthen Secondary High School</item>
         <item>Secondary Diploma</item>
         <item>One Year Program at a University</item>
         <item>Two Year Program at a University</item>
-        <item>Bachelor\'s Degree(Three or more years)</item>
+        <item>Bachelors Degree</item>
         <item>Two or more Certificates Diplomas</item>
-        <item>Master\'s Degree or Professional Degree</item>
-        <item>Doctoral level university degree(PHD)</item>
+        <item>Masters Degree or Professional Degree</item>
+        <item>Doctoral level university degree PHD</item>
     </string-array>
 
     <string-array name="spin_exp">

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="#E0E7E1"/>
+
+    <TextView
+        android:text="About  :"
+        android:textSize="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#858585"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#858585"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="#E0E7E1"/>
+
+   <!-- <Button
+        android:visibility="gone"
+        android:id="@+id/bt_apply_now"
+        android:text="Apply Now"
+        android:padding="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/button1_rounded"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+   <!-- <Button
+        android:id="@+id/bt_upload_resume"
+        android:text="Upload resume"
+        android:padding="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/button1_rounded"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+
+
+    <TextView
+        android:id="@+id/tv_covidnote"
+        android:text="@string/covid_note"
+        android:layout_marginRight="15dp"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#858585"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/radio_yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Yes"
+            android:layout_marginTop="6dp"
+            android:checked="false"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  No"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+
+            android:textSize="20dp" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+  <!--      <TextView
+            android:id="@+id/tv_jobtitle"
+            android:text="Job Title  :"
+            android:textSize="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:textColor="#292828"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
+
+        <TextView
+            android:text="Choose Date"
+            android:gravity="center"
+            android:id="@+id/textv_dob"
+            android:textColor="#A76464"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/tv_dob"
+            android:hint="Choose Date"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edittext_rounded"
+            android:textColorHint="#C5BFC2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Choose Time"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:id="@+id/textv_time"
+            android:textColor="#A76464"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:hint="Choose Time"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edittext_rounded"
+            android:textColorHint="#C5BFC2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bt_check_aval"
+            android:text="Check Avaliability"
+            android:padding="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/button1_rounded"
+            android:textColor="#65B1D3"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100dp"
+            android:minHeight="50dp"
+            android:minWidth="200dp"
+            android:max="100"
+            android:indeterminate="false"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/tView"
+            android:text="51"
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/bt_confirm_appont"
+        android:text="Confirm Appointment"
+        android:padding="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/button1_rounded"
+        android:textColor="#65B1D3"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+<!--
+    <Button
+       android:id="@+id/bt_apply_now"
+       android:text="Apply Now"
+       android:padding="18dp"
+       android:layout_marginTop="40dp"
+       android:layout_marginLeft="80dp"
+       android:layout_marginRight="80dp"
+       android:background="@drawable/button1_rounded"
+       android:textColor="#65B1D3"
+       android:textAllCaps="false"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>-->
+
+
+</LinearLayout>
+</ScrollView>
