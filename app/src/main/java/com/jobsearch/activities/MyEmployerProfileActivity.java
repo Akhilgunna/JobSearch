@@ -18,8 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,30 +35,32 @@ import com.jobsearch.RetrofitInstance;
 import com.jobsearch.Utils;
 import com.jobsearch.adapters.MyProfileAdapter;
 import com.jobsearch.models.EditProfilePojo;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
 
 public class MyEmployerProfileActivity extends AppCompatActivity {
-    ImageView image_view;
-   // TextView tv_name,tv_email,tv_bio,tv_number;
+    CircularImageView image_view;
     EditText et_abt_company;
-    TextView tv_fname,tv_email,tv_bio,tv_lname,tv_phone;
+    TextView tv_fname,tv_email,tv_lname,tv_phone,cd_tv_name,cd_tv_email;
     EditText et_bio;
     Button bt_login,bt_resume,btn_post;
-
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private DrawerLayout dl;
-    MyProfileAdapter myProfileAdapter;
     SharedPreferences sharedPreferences;
     String session;
     ProgressDialog progressDialog;
     List<EditProfilePojo> a1;
+    CardView card_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_employeer_profile);
+
+        card_view=(CardView)findViewById(R.id.card_view);
+        card_view.setBackgroundResource(R.drawable.card_view_bg);
 
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
 
@@ -67,16 +72,15 @@ public class MyEmployerProfileActivity extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setDisplayShowCustomEnabled(true);
 
-        image_view=(ImageView)findViewById(R.id.image_view);
+        image_view=(CircularImageView)findViewById(R.id.image_view);
         tv_fname=(TextView)findViewById(R.id.tv_fname);
         tv_email=(TextView)findViewById(R.id.tv_email);
         tv_lname=(TextView)findViewById(R.id.tv_lname);
         tv_phone=(TextView)findViewById(R.id.tv_phone);
-        // et_bio=(EditText)findViewById(R.id.et_bio);
 
-        //  tv_email.setText("Email_Id   :"+session);
-        // tv_fname.setText("Name  :Testing");
-        //  Glide.with(MyProfileActivity.this).load("https://talentedteacherjobs.co.uk/wp-content/uploads/2018/12/Passport-size-Photo.jpg").into(image_view);
+        cd_tv_name=(TextView)findViewById(R.id.cd_tv_name);
+        cd_tv_email=(TextView)findViewById(R.id.cd_tv_email);
+
 
         btn_post=(Button)findViewById(R.id.btn_post);
         btn_post.setOnClickListener(new View.OnClickListener() {
@@ -103,17 +107,13 @@ public class MyEmployerProfileActivity extends AppCompatActivity {
 
                 EditProfilePojo user = a1.get(0);
 
-                tv_fname.setText(user.getFname());
-
-                tv_lname.setText(user.getLname());
-
+                tv_fname.setText("  "+user.getFname());
+                tv_lname.setText("  "+user.getLname());
+                cd_tv_name.setText(user.getFname()+" "+user.getLname());
+                cd_tv_email.setText(session);
                 Glide.with(MyEmployerProfileActivity.this).load("http://parttimejobs.site/Jobsearch/"+user.getImg_photo()).into(image_view);
-
-                Toast.makeText(getApplicationContext(),""+user.getImg_photo(),Toast.LENGTH_LONG).show();
-
-                tv_phone.setText(user.getPhone());
-
-                tv_email.setText("Email_Id   :"+session);
+                tv_phone.setText("  "+user.getPhone());
+                tv_email.setText("  "+session);
 
             }
 

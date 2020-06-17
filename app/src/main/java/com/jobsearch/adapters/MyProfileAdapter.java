@@ -48,10 +48,10 @@ public class MyProfileAdapter extends BaseAdapter {
 
 
         TextView tv_name=(TextView)obj2.findViewById(R.id.tv_name);
-        tv_name.setText("Name  :"+ar.get(pos).getName());
+        tv_name.setText("Name:"+ar.get(pos).getName());
 
         TextView tv_email=(TextView)obj2.findViewById(R.id.tv_email);
-        tv_email.setText("Email  :"+ar.get(pos).getEmail());
+        tv_email.setText("Email:"+ar.get(pos).getEmail());
 
         return obj2;
     }

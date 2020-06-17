@@ -59,6 +59,7 @@
         <activity android:name=".activities.NewUserJobsActivity"></activity>
 
         <activity android:name=".activities.UserJobStatusActivity"></activity>
+        <activity android:name=".activities.UserJobStatusDetails"></activity>
 
 
     </application>

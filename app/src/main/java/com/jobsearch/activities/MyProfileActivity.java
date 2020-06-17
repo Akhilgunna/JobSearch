@@ -4,9 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,8 +26,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,14 +45,13 @@ import com.jobsearch.Utils;
 import com.jobsearch.adapters.MyProfileAdapter;
 import com.jobsearch.models.EditProfilePojo;
 import com.jobsearch.models.MyProfilePOJO;
+import com.mikhaellopez.circularimageview.CircularImageView;
+
 
 import java.util.List;
 
 public class MyProfileActivity extends AppCompatActivity {
-    ImageView image_view;
-    TextView tv_fname,tv_email,tv_bio,tv_lname,tv_phone;
-    EditText et_bio;
-    Button bt_login,bt_resume,btn_post;
+    TextView tv_fname,tv_email,tv_lname,tv_phone,cd_tv_name,cd_tv_email;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private DrawerLayout dl;
@@ -50,14 +60,27 @@ public class MyProfileActivity extends AppCompatActivity {
     String session;
     ProgressDialog progressDialog;
     List<EditProfilePojo> a1;
+    CircularImageView image_view;
+    CardView card_view,card_view_notif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myprofile);
 
-        sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
+        card_view=(CardView)findViewById(R.id.card_view);
+        card_view.setBackgroundResource(R.drawable.card_view_bg);
 
+        card_view_notif=(CardView)findViewById(R.id.card_view_notif);
+        card_view_notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MyProfileActivity.this,UserJobStatusActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         session = sharedPreferences.getString("user_name", "def-val");
 
         navigationView();
@@ -66,16 +89,19 @@ public class MyProfileActivity extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setDisplayShowCustomEnabled(true);
 
-        image_view=(ImageView)findViewById(R.id.image_view);
+        image_view=(CircularImageView)findViewById(R.id.image_view);
+
         tv_fname=(TextView)findViewById(R.id.tv_fname);
         tv_email=(TextView)findViewById(R.id.tv_email);
         tv_lname=(TextView)findViewById(R.id.tv_lname);
         tv_phone=(TextView)findViewById(R.id.tv_phone);
-       // et_bio=(EditText)findViewById(R.id.et_bio);
 
-      //  tv_email.setText("Email_Id   :"+session);
-       // tv_fname.setText("Name  :Testing");
-      //  Glide.with(MyProfileActivity.this).load("https://talentedteacherjobs.co.uk/wp-content/uploads/2018/12/Passport-size-Photo.jpg").into(image_view);
+        cd_tv_name=(TextView)findViewById(R.id.cd_tv_name);
+
+        cd_tv_email=(TextView)findViewById(R.id.cd_tv_email);
+
+
+
 
 
 
@@ -95,17 +121,21 @@ public class MyProfileActivity extends AppCompatActivity {
 
                  EditProfilePojo user = a1.get(0);
 
-                tv_fname.setText(user.getFname());
+                tv_fname.setText("  "+user.getFname());
 
-                tv_lname.setText(user.getLname());
+                tv_lname.setText("  "+user.getLname());
+
+                cd_tv_name.setText(user.getFname()+" "+user.getLname());
+                cd_tv_email.setText(session);
+
+
 
                 Glide.with(MyProfileActivity.this).load("http://parttimejobs.site/Jobsearch/"+user.getImg_photo()).into(image_view);
 
-                Toast.makeText(getApplicationContext(),""+user.getImg_photo(),Toast.LENGTH_LONG).show();
 
-                tv_phone.setText(user.getPhone());
+                tv_phone.setText("  "+user.getPhone());
 
-                tv_email.setText("Email_Id   :"+session);
+                tv_email.setText("  "+session);
 
             }
 
