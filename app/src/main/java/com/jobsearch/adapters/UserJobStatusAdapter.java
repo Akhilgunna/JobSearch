@@ -17,6 +17,7 @@ import com.jobsearch.ResponseData;
 import com.jobsearch.RetrofitInstance;
 import com.jobsearch.activities.EditListOfJobsActivity;
 import com.jobsearch.activities.ListOfJobsActivity;
+import com.jobsearch.activities.UserJobStatusDetails;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.UserJobStatusPojo;
 
@@ -58,10 +59,19 @@ public class UserJobStatusAdapter extends BaseAdapter {
 
 
         TextView tv_jid=(TextView)obj2.findViewById(R.id.tv_jid);
-        tv_jid.setText("Job Title  :"+ar.get(pos).getJob_title());
+        tv_jid.setText("Job Title:"+ar.get(pos).getJob_title());
 
         TextView tv_status=(TextView)obj2.findViewById(R.id.tv_status);
-        tv_status.setText("Status  :"+ar.get(pos).getStatus());
+        tv_status.setText("Status:"+ar.get(pos).getStatus());
+
+        tv_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(cnt,UserJobStatusDetails.class);
+                intent.putExtra("id",ar.get(pos).getId());
+                cnt.startActivity(intent);
+            }
+        });
 
 
         return obj2;

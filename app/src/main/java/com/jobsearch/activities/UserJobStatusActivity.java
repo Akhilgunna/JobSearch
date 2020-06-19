@@ -40,7 +40,7 @@ public class UserJobStatusActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         uname = sharedPreferences.getString("user_name", "");
-        Toast.makeText(UserJobStatusActivity.this, "Email  "+uname, Toast.LENGTH_SHORT).show();
+
 
         getSupportActionBar().setTitle("Applied Jobs Status");
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -86,28 +86,7 @@ public class UserJobStatusActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    /*public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);//Menu Resource, Menu
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.idlogout:
-                Intent i=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
-                finish();
 
-            case android.R.id.home:
-                this.finish();
-
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 
 }
 

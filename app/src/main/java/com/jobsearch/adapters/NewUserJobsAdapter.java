@@ -53,19 +53,19 @@ public class NewUserJobsAdapter extends BaseAdapter {
         Glide.with(cnt).load(str+ar.get(pos).getImg_photo()).into(iv_image_view);
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
-        tv_company_title.setText("Name  :"+ar.get(pos).getC_name());
+        tv_company_title.setText("Name:"+ar.get(pos).getC_name());
 
         TextView tv_salary=(TextView)obj2.findViewById(R.id.tv_salary);
-        tv_salary.setText("Salary  :"+ar.get(pos).getSalary());
+        tv_salary.setText("Salary:"+ar.get(pos).getSalary());
 
         TextView tv_work_type=(TextView)obj2.findViewById(R.id.tv_work_type);
-        tv_work_type.setText("Work Type  :"+ar.get(pos).getWork_type());
+        tv_work_type.setText("Work Type:"+ar.get(pos).getWork_type());
 
         TextView tv_locoation=(TextView)obj2.findViewById(R.id.tv_locoation);
-        tv_locoation.setText("Location  :"+ar.get(pos).getLocation());
+        tv_locoation.setText("Location:"+ar.get(pos).getLocation());
 
         TextView tv_about=(TextView)obj2.findViewById(R.id.tv_about);
-        tv_about.setText("About  :"+ar.get(pos).getAbout());
+        tv_about.setText("About:"+ar.get(pos).getAbout());
 
 
 
@@ -85,23 +85,5 @@ public class NewUserJobsAdapter extends BaseAdapter {
         });
         return obj2;
     }
-   /* public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        ar.clear();
-        if (charText.length() == 0) {
-            ar.addAll(ar9);
-        }
-        else
-        {
-            for (ListOfUserJobsPojo wp : ar9)
-            {
-                if (wp.getLocation().toLowerCase(Locale.getDefault()).contains(charText)||wp.getC_name().toLowerCase(Locale.getDefault()).contains(charText))
-                {
-                    ar.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }*/
 
 }
