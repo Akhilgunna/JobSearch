@@ -8,10 +8,22 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="6dp"
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="2dp"
         card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv"
+            android:src="@drawable/ic_status_msg"
+            android:scaleType="center"
+            android:layout_width="75dp"
+            android:layout_height="75dp" />
             <LinearLayout
                 android:orientation="vertical"
                 android:padding="8dp"
@@ -28,19 +40,19 @@
 
                 <TextView
                     android:id="@+id/tv_status"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableRight="@drawable/ic_eye"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/tv_company_title"
+                    android:visibility="gone"
                     android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-
-
-
             </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </ScrollView>
