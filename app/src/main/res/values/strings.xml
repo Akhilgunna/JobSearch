@@ -8,10 +8,33 @@
 
 
     <string-array name="login">
-        <!--        <item>User/Employee</item>-->
+
         <item>User</item>
         <item>Employer</item>
         <item>Admin</item>
+    </string-array>
+
+    <string-array name="job_type">
+        <item>Job type</item>
+        <item>PartTime</item>
+        <item>FullTime</item>
+
+    </string-array>
+
+    <string-array name="order">
+        <item>Latest - Old</item>
+        <item>Old - Latest</item>
+
+
+    </string-array>
+    <string-array name="salary">
+        <item>Salary</item>
+
+        <item>10$</item>
+        <item>20$</item>
+        <item>30$</item>
+        <item>40$</item>
+
     </string-array>
 
     <string name="Open">Open navigation drawer</string>

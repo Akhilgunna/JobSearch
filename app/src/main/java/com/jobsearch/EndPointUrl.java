@@ -123,6 +123,19 @@ public interface EndPointUrl {
     Call<List<ListOfUserJobsPojo>> getAllJobs(
     );
 
+    @GET("Jobsearch/searchFilter.php")
+    Call<List<ListOfUserJobsPojo>> searchFilter(
+
+            @Query("title") String title,
+            @Query("location") String location,
+            @Query("job_type") String job_type,
+            @Query("salary") String salary
+
+
+    );
+
+
+
 
 
     @GET("Jobsearch/getNewJobs.php")

@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.RetrofitInstance;
@@ -37,6 +39,7 @@ public class NewUserJobsActivity extends AppCompatActivity {
     String uname;
     EditText search;
     ListOfUserJobsAdapter listOfUserJobsAdapter;
+    ImageView iv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,11 @@ public class NewUserJobsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("New Jobs");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        iv=(ImageView)findViewById(R.id.iv);
+        String gifUrl = "https://1.bp.blogspot.com/-7F5ZtDVy-C8/Xaq4p1MLPlI/AAAAAAAAAeI/7EWe3n4cc4wDt8F-GrV6B_CcP-7QxIlgACLcBGAsYHQ/s1600/arrow-with-new-letter-icon-gif-animation%2B%25281%2529.gif";
+        https://singaporemotherhood.com/forum/attachments/new-gif.695095/
+        Glide.with(NewUserJobsActivity.this ).load( gifUrl ).into(iv);
 
         list_view=(ListView)findViewById(R.id.list_view);
         al= new ArrayList<>();

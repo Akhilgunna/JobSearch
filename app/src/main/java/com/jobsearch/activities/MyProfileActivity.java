@@ -181,7 +181,7 @@ public class MyProfileActivity extends AppCompatActivity {
                          break;
 
                     case R.id.search_jobs:
-                        Intent searchjobs=new Intent(getApplicationContext(), SearchJobsActivity.class);
+                        Intent searchjobs=new Intent(getApplicationContext(), FiltersActivity.class);
                         startActivity(searchjobs);
                         break;
 

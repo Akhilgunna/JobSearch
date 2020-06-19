@@ -36,11 +36,12 @@
 
         <TextView
             android:gravity="center"
-            android:text="Notification"
+            android:drawableLeft="@drawable/ic_notify"
+            android:text="Notifications"
             android:padding="12dp"
             android:textColor="#000"
             android:textSize="18dp"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>
 

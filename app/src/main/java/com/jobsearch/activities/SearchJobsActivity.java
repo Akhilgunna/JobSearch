@@ -36,10 +36,8 @@ public class SearchJobsActivity extends AppCompatActivity {
     ListView list_view;
     ProgressDialog progressDialog;
     List<ListOfUserJobsPojo> al;
-    SharedPreferences sharedPreferences;
-    String uname;
-    EditText search;
     SearchJobsAdapter searchJobsAdapter;
+    String etsearch,etlocation,etsalary,etjob_type;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +48,17 @@ public class SearchJobsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         list_view=(ListView)findViewById(R.id.list_view);
-        search=(EditText)findViewById(R.id.search);
-        search.addTextChangedListener(new TextWatcher() {
+        etsearch=getIntent().getStringExtra("search");
+        etlocation=getIntent().getStringExtra("location");
+        etjob_type=getIntent().getStringExtra("job_type");
+        etsalary=getIntent().getStringExtra("salary");
+
+
+        /*etsearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
-                String text = search.getText().toString().toLowerCase(Locale.getDefault());
+                String text = etsearch.toLowerCase(Locale.getDefault());
                 searchJobsAdapter.filter(text);
             }
 
@@ -68,7 +71,7 @@ public class SearchJobsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
                 // TODO Auto-generated method stub
             }
-        });
+        });*/
         al= new ArrayList<>();
 
         serverData();
@@ -77,10 +80,8 @@ public class SearchJobsActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(SearchJobsActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
-        sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
-        uname = sharedPreferences.getString("user_name", "");
         EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<List<ListOfUserJobsPojo>> call = service.getAllJobs();
+        Call<List<ListOfUserJobsPojo>> call = service.searchFilter(etsearch,etlocation,etjob_type,etsalary);
         call.enqueue(new Callback<List<ListOfUserJobsPojo>>() {
             @Override
             public void onResponse(Call<List<ListOfUserJobsPojo>> call, Response<List<ListOfUserJobsPojo>> response) {
@@ -89,9 +90,9 @@ public class SearchJobsActivity extends AppCompatActivity {
                     Toast.makeText(SearchJobsActivity.this,"No data found",Toast.LENGTH_SHORT).show();
                 }else {
                     al = response.body();
-                    searchJobsAdapter=new SearchJobsAdapter(al, SearchJobsActivity.this);
-                    list_view.setAdapter(searchJobsAdapter);
-                    //list_view.setAdapter(new ListOfUserJobsAdapter(al, SearchJobsActivity.this));
+                    /*searchJobsAdapter=new SearchJobsAdapter(al, SearchJobsActivity.this);
+                    list_view.setAdapter(searchJobsAdapter);*/
+                    list_view.setAdapter(new SearchJobsAdapter(al, SearchJobsActivity.this));
                 }
             }
 

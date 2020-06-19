@@ -30,9 +30,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListOfJobsAdapter extends BaseAdapter {
-
     List<ListOfJobsPojo> ar;
     Context cnt;
+    String str="http://parttimejobs.site/Jobsearch/";
     public ListOfJobsAdapter(List<ListOfJobsPojo> ar, Context cnt)
     {
         this.ar=ar;
@@ -59,26 +59,29 @@ public class ListOfJobsAdapter extends BaseAdapter {
         LayoutInflater obj1 = (LayoutInflater)cnt.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View obj2=obj1.inflate(R.layout.list_of_jobs_adapter,null);
 
+        ImageView image_view=(ImageView)obj2.findViewById(R.id.image_view) ;
+        Glide.with(cnt).load(str+ar.get(pos).getImg_photo()).into(image_view);
+
 
 
         TextView tv_jid=(TextView)obj2.findViewById(R.id.tv_jid);
-        tv_jid.setText("Job Id:"+ar.get(pos).getId());
+        tv_jid.setText("Job Id:  "+ar.get(pos).getId());
 
 
         TextView tv_company_title=(TextView)obj2.findViewById(R.id.tv_company_title);
-        tv_company_title.setText("Name:"+ar.get(pos).getC_name());
+        tv_company_title.setText("Name:  "+ar.get(pos).getC_name());
 
         TextView tv_salary=(TextView)obj2.findViewById(R.id.tv_salary);
-        tv_salary.setText("Salary:"+ar.get(pos).getSalary());
+        tv_salary.setText("Salary:  "+ar.get(pos).getSalary());
 
         TextView tv_work_type=(TextView)obj2.findViewById(R.id.tv_work_type);
-        tv_work_type.setText("Work Type:"+ar.get(pos).getWork_type());
+        tv_work_type.setText("Work Type:  "+ar.get(pos).getWork_type());
 
         TextView tv_locoation=(TextView)obj2.findViewById(R.id.tv_locoation);
-        tv_locoation.setText("Location:"+ar.get(pos).getLocation());
+        tv_locoation.setText("Location:  "+ar.get(pos).getLocation());
 
         TextView tv_about=(TextView)obj2.findViewById(R.id.tv_about);
-        tv_about.setText("About:"+ar.get(pos).getAbout());
+        tv_about.setText("About:  "+ar.get(pos).getAbout());
 
 
 

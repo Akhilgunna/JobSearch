@@ -234,7 +234,8 @@
             android:layout_marginLeft="85dp"
             android:layout_marginRight="85dp"
             android:background="@drawable/button1_rounded"
-            android:textColor="#171818"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
             android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -248,7 +249,8 @@
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
             android:background="@drawable/button1_rounded"
-            android:textColor="#65B1D3"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
             android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

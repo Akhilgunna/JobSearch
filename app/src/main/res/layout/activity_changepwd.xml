@@ -77,7 +77,8 @@
         android:layout_gravity="right"
        android:layout_margin="40dp"
         android:background="@drawable/button1_rounded"
-        android:textColor="#65B1D3"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:layout_width="95dp"
         android:layout_height="50dp"/>

@@ -59,10 +59,10 @@ public class UserJobStatusAdapter extends BaseAdapter {
 
 
         TextView tv_jid=(TextView)obj2.findViewById(R.id.tv_jid);
-        tv_jid.setText("Job Title:"+ar.get(pos).getJob_title());
+        tv_jid.setText("Job Title:  "+ar.get(pos).getJob_title());
 
         TextView tv_status=(TextView)obj2.findViewById(R.id.tv_status);
-        tv_status.setText("Status:"+ar.get(pos).getStatus());
+        tv_status.setText("Status:  "+ar.get(pos).getStatus());
 
         tv_status.setOnClickListener(new View.OnClickListener() {
             @Override

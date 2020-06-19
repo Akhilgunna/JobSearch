@@ -62,28 +62,28 @@ public class ListOfAppliedJobsAdapter extends BaseAdapter {
         View obj2 = obj1.inflate(R.layout.adapter_list_of_applied_jobs, null);
 
         TextView tv_name = (TextView) obj2.findViewById(R.id.tv_name);
-        tv_name.setText("Name:" + ar.get(pos).getName());
+        tv_name.setText("Name:  " + ar.get(pos).getName());
 
         TextView tv_age = (TextView) obj2.findViewById(R.id.tv_age);
-        tv_age.setText("Age:" + ar.get(pos).getAge());
+        tv_age.setText("Age:  " + ar.get(pos).getAge());
 
         TextView tv_exp = (TextView) obj2.findViewById(R.id.tv_exp);
-        tv_exp.setText("Experience:" + ar.get(pos).getExp());
+        tv_exp.setText("Experience:  " + ar.get(pos).getExp());
 
         TextView tv_email = (TextView) obj2.findViewById(R.id.tv_email);
-        tv_email.setText("Email:" + ar.get(pos).getEmail());
+        tv_email.setText("Email:  "  + ar.get(pos).getEmail());
 
         TextView tv_Location = (TextView) obj2.findViewById(R.id.tv_Location);
-        tv_Location.setText("Location:" + ar.get(pos).getLocation());
+        tv_Location.setText("Location:  " + ar.get(pos).getLocation());
 
         TextView tv_postal_code = (TextView) obj2.findViewById(R.id.tv_postal_code);
-        tv_postal_code.setText("Postal Code:" + ar.get(pos).getPostal());
+        tv_postal_code.setText("Postal Code:  " + ar.get(pos).getPostal());
 
         TextView tv_date = (TextView) obj2.findViewById(R.id.tv_date);
-        tv_date.setText("Date:" + ar.get(pos).getDat());
+        tv_date.setText("Date:  "+ ar.get(pos).getDat());
 
         TextView tv_time = (TextView) obj2.findViewById(R.id.tv_time);
-        tv_time.setText("Time:" + ar.get(pos).getTime());
+        tv_time.setText("Time:  "+ ar.get(pos).getTime());
 
         Button btn_view_resume=(Button)obj2.findViewById(R.id.btn_view_resume);
         btn_view_resume.setOnClickListener(new View.OnClickListener() {
