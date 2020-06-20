@@ -2,107 +2,82 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/background"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<TableLayout
-    android:layout_marginTop="50dp"
-    android:id="@+id/tv_layout"
-    android:layout_gravity="center"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
+    <!--android:background="@drawable/background"-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Name :" />
+            android:text="Name" />
 
         <EditText
             android:id="@+id/et_name"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="22dp"
-            android:padding="8dp"
+            android:hint="Name"
+            android:singleLine="true"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </TableRow>
-
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Age  :" />
-
-<!--        <EditText-->
-<!--            android:id="@+id/et_age"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:textSize="15dp"-->
-<!--            android:padding="8dp"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
-<!--    -->
+            android:text="Age"  />
 
         <Spinner
             android:id="@+id/spinner_age"
             android:singleLine="true"
-            android:background="@drawable/spinner_rounded"
             android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/spin_age"
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
-    </TableRow>
 
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Experience  :" />
-
-<!--        <EditText-->
-<!--            android:id="@+id/et_experience"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:textSize="15dp"-->
-<!--            android:padding="8dp"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+            android:text="Experience" />
 
         <Spinner
             android:id="@+id/spin_experience"
             android:singleLine="true"
-            android:background="@drawable/spinner_rounded"
             android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,121 +85,91 @@
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
 
-    </TableRow>
 
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
+
+
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Email Id  :" />
+            android:text="Email Id"/>
 
         <EditText
             android:id="@+id/et_emailid"
-            android:layout_weight="1"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp"
-            android:padding="8dp"
+            android:hint="Email Id"
+            android:singleLine="true"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </TableRow>
 
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Location  :" />
+            android:text="Location"/>
 
         <EditText
             android:id="@+id/et_location"
-            android:layout_weight="1"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp"
-            android:padding="8dp"
+            android:hint="Location"
+            android:singleLine="true"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!--<Button
-            android:id="@+id/bt_picker"
-            android:text="Place Picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />-->
 
-    </TableRow>
 
     <Button
         android:id="@+id/bt_picker"
         android:text="Place Picker"
+        android:background="@drawable/button1_rounded"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!--<TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
             android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Location  :" />
-
-        <EditText
-            android:id="@+id/et_location"
-            android:layout_weight="1"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15dp"
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>-->
-
-    <TableRow
-        android:layout_marginBottom="15dp"
-        android:padding="5dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="#111111"
-            android:layout_weight="0"
-            android:text="Postal Code  :" />
+            android:text="Postal Code"/>
 
         <EditText
             android:id="@+id/et_postal_code"
-            android:layout_weight="1"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="#FFFFFF"
-            android:textSize="21dp"
-            android:padding="8dp"
+            android:hint="Postal Code"
+            android:singleLine="true"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </TableRow>
+
+
 
     <Button
         android:id="@+id/bt_upload_resume"
@@ -251,9 +196,8 @@
         android:textStyle="bold"
         android:layout_marginRight="120dp"
         android:layout_marginBottom="2dp"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button1_rounded" />
-</TableLayout>
+    </LinearLayout>
 </ScrollView>

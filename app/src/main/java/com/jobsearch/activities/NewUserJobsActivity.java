@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -36,10 +39,10 @@ public class NewUserJobsActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     List<NewUserJobsPojo> al;
     SharedPreferences sharedPreferences;
-    String uname;
-    EditText search;
     ListOfUserJobsAdapter listOfUserJobsAdapter;
     ImageView iv;
+    Spinner spin_order,$order;
+    String m;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,17 +58,43 @@ public class NewUserJobsActivity extends AppCompatActivity {
         https://singaporemotherhood.com/forum/attachments/new-gif.695095/
         Glide.with(NewUserJobsActivity.this ).load( gifUrl ).into(iv);
 
+        spin_order=(Spinner)findViewById(R.id.spin_order);
+        spin_order.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if(spin_order.getSelectedItem().toString().equals("Latest - Old"))
+                {
+                    m="new";
+                    serverData(m);
+                    //Toast.makeText(NewUserJobsActivity.this, m, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    m="old";
+                    serverData(m);
+                    //Toast.makeText(NewUserJobsActivity.this, m, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+
         list_view=(ListView)findViewById(R.id.list_view);
         al= new ArrayList<>();
 
-        serverData();
+
     }
-    public void serverData(){
+    public void serverData(final String mode){
         progressDialog = new ProgressDialog(NewUserJobsActivity.this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
         EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<List<NewUserJobsPojo>> call = service.newuserJobs();
+        Call<List<NewUserJobsPojo>> call = service.newuserJobs(mode);
         call.enqueue(new Callback<List<NewUserJobsPojo>>() {
             @Override
             public void onResponse(Call<List<NewUserJobsPojo>> call, Response<List<NewUserJobsPojo>> response) {

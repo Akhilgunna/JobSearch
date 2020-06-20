@@ -41,6 +41,12 @@
 <!--        android:layout_height="2dp"-->
 <!--        android:background="#E0E7E1"/>-->
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/change"  />
+
     <TextView
         android:id="@+id/tv_newpwd"
         android:text="New Password"
@@ -55,9 +61,11 @@
 
     <EditText
         android:id="@+id/et_newpwdd"
+        android:hint="New Password"
         android:inputType="textPassword"
         android:singleLine="true"
-        android:background="#FFFFFF"
+        android:padding="9dp"
+        android:background="@drawable/edittext_reg_fields"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"

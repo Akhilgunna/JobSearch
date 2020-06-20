@@ -15,36 +15,32 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/et_title"
+            android:hint="Job Title"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
+
 
 
 
         <TextView
-            android:id="@+id/tv_first_name"
             android:text="Company name"
             android:textSize="16dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -52,19 +48,15 @@
         <EditText
             android:id="@+id/et_company_name"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:hint="Company name"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
 
         <TextView
@@ -74,7 +66,7 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -82,19 +74,15 @@
         <EditText
             android:id="@+id/et_locoation"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:hint="Location"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <TextView
             android:id="@+id/tv_qualification"
@@ -103,7 +91,7 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -111,7 +99,8 @@
         <Spinner
             android:id="@+id/spin_qualification"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="12dp"
@@ -122,12 +111,6 @@
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <TextView
             android:id="@+id/tv_about"
@@ -136,7 +119,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:textColor="#000"
+            android:textColor="#111111"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -145,7 +128,8 @@
             android:id="@+id/et_about"
             android:minLines="5"
             android:gravity="start"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="12dp"
@@ -160,14 +144,15 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Spinner
             android:id="@+id/spin_salary"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="12dp"
@@ -178,20 +163,13 @@
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
-
 
 
         <TextView
             android:id="@+id/tv_work_type"
             android:hint="Work Type"
             android:textSize="16dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:layout_width="wrap_content"

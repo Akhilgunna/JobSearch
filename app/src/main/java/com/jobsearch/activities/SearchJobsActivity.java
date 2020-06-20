@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -38,6 +39,7 @@ public class SearchJobsActivity extends AppCompatActivity {
     List<ListOfUserJobsPojo> al;
     SearchJobsAdapter searchJobsAdapter;
     String etsearch,etlocation,etsalary,etjob_type;
+    TextView tv_nojobs;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class SearchJobsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Search Jobs");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tv_nojobs=(TextView)findViewById(R.id.tv_nojobs);
 
         list_view=(ListView)findViewById(R.id.list_view);
         etsearch=getIntent().getStringExtra("search");
@@ -54,24 +57,6 @@ public class SearchJobsActivity extends AppCompatActivity {
         etsalary=getIntent().getStringExtra("salary");
 
 
-        /*etsearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable arg0) {
-                // TODO Auto-generated method stub
-                String text = etsearch.toLowerCase(Locale.getDefault());
-                searchJobsAdapter.filter(text);
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-                // TODO Auto-generated method stub
-            }
-
-            @Override
-            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-                // TODO Auto-generated method stub
-            }
-        });*/
         al= new ArrayList<>();
 
         serverData();
@@ -88,10 +73,10 @@ public class SearchJobsActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 if(response.body()==null){
                     Toast.makeText(SearchJobsActivity.this,"No data found",Toast.LENGTH_SHORT).show();
+
                 }else {
                     al = response.body();
-                    /*searchJobsAdapter=new SearchJobsAdapter(al, SearchJobsActivity.this);
-                    list_view.setAdapter(searchJobsAdapter);*/
+
                     list_view.setAdapter(new SearchJobsAdapter(al, SearchJobsActivity.this));
                 }
             }
@@ -99,7 +84,9 @@ public class SearchJobsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<ListOfUserJobsPojo>> call, Throwable t) {
                 progressDialog.dismiss();
-                Toast.makeText(SearchJobsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SearchJobsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchJobsActivity.this,"Oops No Jobs found...!",Toast.LENGTH_SHORT).show();
+                tv_nojobs.setText("Oops No Jobs found...!");
             }
         });
     }

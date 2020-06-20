@@ -7,6 +7,7 @@ import com.jobsearch.models.CheckeAppliedJobsPojo;
 import com.jobsearch.models.EditMyJobsPojo;
 import com.jobsearch.models.EditProfilePojo;
 import com.jobsearch.models.ListOfAppliedJobsPojo;
+import com.jobsearch.models.ListOfFiltersPojo;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
 import com.jobsearch.models.MyProfilePOJO;
@@ -123,6 +124,10 @@ public interface EndPointUrl {
     Call<List<ListOfUserJobsPojo>> getAllJobs(
     );
 
+    @GET("/Jobsearch/getsearchalljobs.php")
+    Call<List<ListOfFiltersPojo>> searchfilter(
+    );
+
     @GET("Jobsearch/searchFilter.php")
     Call<List<ListOfUserJobsPojo>> searchFilter(
 
@@ -140,6 +145,9 @@ public interface EndPointUrl {
 
     @GET("Jobsearch/getNewJobs.php")
     Call<List<NewUserJobsPojo>> newuserJobs(
+            @Query("order") String order
+
+
     );
 
 

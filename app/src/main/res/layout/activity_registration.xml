@@ -16,27 +16,24 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 
         <EditText
             android:id="@+id/et_first_name"
+            android:hint="Firstname"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
+
 
 
         <TextView
@@ -46,33 +43,29 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 
         <EditText
             android:id="@+id/et_last_name"
+            android:hint="Lastname"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <TextView
             android:id="@+id/tv_GENDER"
-            android:hint="Gender"
+            android:text="Gender"
             android:textSize="16dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:layout_width="wrap_content"
@@ -85,8 +78,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/radioGroup"
             android:orientation="horizontal">
-
-
 
             <RadioButton
                 android:id="@+id/radioMale"
@@ -113,27 +104,23 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 
         <EditText
             android:id="@+id/et_email"
+            android:hint="Email"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <TextView
             android:id="@+id/tv_phno"
@@ -142,27 +129,22 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 
         <EditText
             android:id="@+id/et_phone_no"
+            android:hint="Phoneno"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <TextView
             android:id="@+id/tv_spin"
@@ -171,14 +153,15 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Spinner
             android:id="@+id/spin_stud_emp"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="12dp"
@@ -190,14 +173,6 @@
             android:spinnerMode="dropdown"/>
 
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
-
-
         <TextView
             android:id="@+id/tv_pwd"
             android:text="Password"
@@ -205,28 +180,23 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
-            android:textColor="#292828"
+            android:textColor="#111111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 
         <EditText
             android:id="@+id/et_password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:singleLine="true"
-            android:background="#FFFFFF"
+            android:padding="9dp"
+            android:background="@drawable/edittext_reg_fields"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="2dp"
-            android:background="#E0E7E1"/>
 
         <Button
             android:id="@+id/select_image"

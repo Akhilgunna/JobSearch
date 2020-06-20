@@ -30,10 +30,17 @@
     <string-array name="salary">
         <item>Salary</item>
 
-        <item>10$</item>
-        <item>20$</item>
-        <item>30$</item>
-        <item>40$</item>
+        <item>Select below</item>
+        <item>10$-12$</item>
+        <item>12$-15$</item>
+        <item>15$-17$</item>
+        <item>17$-19$</item>
+        <item>19$-21$</item>
+        <item>21$-23$</item>
+        <item>23$-25$</item>
+        <item>25$-27$</item>
+        <item>27-30$</item>
+        <item>More then 30$</item>
 
     </string-array>
 
