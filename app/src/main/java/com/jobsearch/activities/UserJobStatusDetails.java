@@ -1,8 +1,11 @@
 package com.jobsearch.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -10,10 +13,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
+import com.jobsearch.ResponseData;
 import com.jobsearch.RetrofitInstance;
 import com.jobsearch.adapters.UserJobStatusAdapter;
 import com.jobsearch.adapters.UserJobStatusDetailsAdapter;
@@ -31,6 +36,10 @@ public class UserJobStatusDetails extends AppCompatActivity {
     ListView list_view;
     ProgressDialog progressDialog;
     List<UserJobstatusDetailsPojo> al;
+    Button btn_delete;
+    TextView tv_date,tv_time,tv_location;
+    CardView card_view;
+    String jid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +48,32 @@ public class UserJobStatusDetails extends AppCompatActivity {
         getSupportActionBar().setTitle("Job Details");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        tv_date=(TextView)findViewById(R.id.tv_date);
+        tv_time=(TextView)findViewById(R.id.tv_time);
+        tv_location=(TextView)findViewById(R.id.tv_location);
+
+        tv_date.setText("Date:   "+getIntent().getStringExtra("date"));
+        tv_time.setText("Time:   "+getIntent().getStringExtra("time"));
+        tv_location.setText("Location:   "+getIntent().getStringExtra("locoation"));
+
+        jid=getIntent().getStringExtra("jid");
+        card_view=(CardView)findViewById(R.id.card_view);
+        if(getIntent().getStringExtra("status").equals("Selected"))
+        {
+            card_view.setVisibility(View.VISIBLE);
+        }
+        else {
+            card_view.setVisibility(View.GONE);
+        }
+
+        btn_delete=(Button)findViewById(R.id.btn_delete);
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                serverdelete(getIntent().getStringExtra("aid"));
+            }
+        });
 
         list_view=(ListView)findViewById(R.id.list_view);
         al= new ArrayList<>();
@@ -52,7 +87,7 @@ public class UserJobStatusDetails extends AppCompatActivity {
         progressDialog.setMessage("Loading....");
         progressDialog.show();
         EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
-        Call<List<UserJobstatusDetailsPojo>> call = service.getjobsbyid(getIntent().getStringExtra("id"));
+        Call<List<UserJobstatusDetailsPojo>> call = service.getjobsbyid(getIntent().getStringExtra("jid"));
         call.enqueue(new Callback<List<UserJobstatusDetailsPojo>>() {
             @Override
             public void onResponse(Call<List<UserJobstatusDetailsPojo>> call, Response<List<UserJobstatusDetailsPojo>> response) {
@@ -67,6 +102,33 @@ public class UserJobStatusDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<UserJobstatusDetailsPojo>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(UserJobStatusDetails.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void serverdelete(String id){
+        progressDialog = new ProgressDialog(UserJobStatusDetails.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+        EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<ResponseData> call = service.deletemsg(id);
+        call.enqueue(new Callback<ResponseData>() {
+            @Override
+            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                progressDialog.dismiss();
+                if(response.body()==null){
+                    Toast.makeText(UserJobStatusDetails.this,"Server issue",Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent=new Intent(UserJobStatusDetails.this, MyProfileActivity.class);
+                    UserJobStatusDetails.this.startActivity(intent);
+                   // Toast.makeText(UserJobStatusDetails.this,"Status updated successfully",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseData> call, Throwable t) {
                 progressDialog.dismiss();
                 Toast.makeText(UserJobStatusDetails.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }

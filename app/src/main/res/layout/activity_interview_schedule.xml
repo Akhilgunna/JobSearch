@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="Select Date"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:textColor="#111111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_dob"
+        android:hint="Choose Date"
+        android:padding="11dp"
+        android:background="@drawable/edittext_reg_fields"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#111111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Select Time"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:textColor="#111111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:hint="Select Time"
+        android:padding="13dp"
+        android:background="@drawable/edittext_reg_fields"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#111111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:text="Location"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:textColor="#111111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/et_location"
+        android:hint="Enter Location"
+        android:singleLine="true"
+        android:padding="9dp"
+        android:background="@drawable/edittext_reg_fields"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:text="Submit"
+        android:padding="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/button1_rounded"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

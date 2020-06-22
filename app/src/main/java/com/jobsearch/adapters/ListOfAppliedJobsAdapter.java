@@ -21,6 +21,7 @@ import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.ResponseData;
 import com.jobsearch.RetrofitInstance;
+import com.jobsearch.activities.InterviewScheduleActivity;
 import com.jobsearch.models.ListOfAppliedJobsPojo;
 
 import java.util.ArrayList;
@@ -111,7 +112,14 @@ public class ListOfAppliedJobsAdapter extends BaseAdapter {
                     //Toast.makeText(cnt, "Status "+str_id, Toast.LENGTH_SHORT).show();
                 }
                 else if (radio_selected.isChecked()){
-                    serverData(ar.get(pos).getId(),"Selected");
+                    Intent intent=new Intent(cnt, InterviewScheduleActivity.class);
+                    intent.putExtra("id",ar.get(pos).getId());
+                    intent.putExtra("select","Selected");
+                    cnt.startActivity(intent);
+                    //serverData(ar.get(pos).getId(),"Selected");
+
+                   // Toast.makeText(cnt, ""+ar.get(pos).getId(), Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     serverData(ar.get(pos).getId(),"Rejected");

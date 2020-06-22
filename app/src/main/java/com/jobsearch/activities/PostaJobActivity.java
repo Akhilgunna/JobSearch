@@ -13,9 +13,10 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -27,7 +28,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.ResponseData;
+import com.jobsearch.RetrofitInstance;
 import com.jobsearch.Utils;
+import com.jobsearch.models.QualificationPojo;
+import com.jobsearch.models.SalaryPojo;
 
 import java.io.File;
 import java.util.HashMap;
@@ -56,12 +60,16 @@ public class PostaJobActivity extends AppCompatActivity implements EasyPermissio
     private Uri uri;
     String worktype,session;
     SharedPreferences sharedPreferences;
+    List<QualificationPojo> a3;
+    List<SalaryPojo> a1;
+    String[] qualificationstatus,getsal;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_a_job);
+        getQualification();
+        getSalary();
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
-
         session = sharedPreferences.getString("user_name", "def-val");
 
         getSupportActionBar().setTitle("Post a Job");
@@ -195,6 +203,92 @@ public class PostaJobActivity extends AppCompatActivity implements EasyPermissio
         }
     }
 
+
+    public void getQualification() {
+        EndPointUrl apiService = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<List<QualificationPojo>> call = apiService.getqualification();
+        call.enqueue(new Callback<List<QualificationPojo>>() {
+            @Override
+            public void onResponse(Call<List<QualificationPojo>> call, Response<List<QualificationPojo>> response) {
+                if (response.body() != null) {
+                    if(response.body().size()>0){
+                        a3 = response.body();
+                        qualificationstatus = new String[a3.size() + 1];
+                        qualificationstatus[0] = "Select Qualification";
+                        for (int i = 0; i < a3.size(); i++) {
+                            qualificationstatus[i + 1] = a3.get(i).getName();
+                        }
+                        ArrayAdapter aa = new ArrayAdapter(PostaJobActivity.this, android.R.layout.simple_spinner_item, qualificationstatus);
+                        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spin_qualification.setAdapter(aa);
+                        spin_qualification.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                                if (pos > 0) {
+
+                                }
+                            }
+                            @Override
+                            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                            }
+                        });
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<QualificationPojo>> call, Throwable t) {
+                Log.d("TAG", "Response = " + t.toString());
+            }
+        });
+    }
+
+
+    private void getSalary() {
+        EndPointUrl apiService = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<List<SalaryPojo>> call = apiService.getsalary();
+        call.enqueue(new Callback<List<SalaryPojo>>() {
+            @Override
+            public void onResponse(Call<List<SalaryPojo>> call, Response<List<SalaryPojo>> response) {
+                if (response.body() != null) {
+                    if(response.body().size()>0) {
+                        a1 = response.body();
+                        Log.d("TAG", "Response = " + a1);
+                        getsal = new String[a1.size() + 1];
+                        getsal[0] = "Select Salary";
+                        for (int i = 0; i < a1.size(); i++) {
+                            getsal[i + 1] = a1.get(i).getSalary();
+                        }
+                        ArrayAdapter aa = new ArrayAdapter(PostaJobActivity.this, android.R.layout.simple_spinner_item, getsal);
+                        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spin_salary.setAdapter(aa);
+                        spin_salary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                                if (pos > 0) {
+
+
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                            }
+                        });
+
+                    }}
+
+            }
+
+            @Override
+            public void onFailure(Call<List<SalaryPojo>> call, Throwable t) {
+                Log.d("TAG", "Response = " + t.toString());
+            }
+        });
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

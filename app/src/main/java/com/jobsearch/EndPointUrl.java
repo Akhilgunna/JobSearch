@@ -3,6 +3,7 @@ package com.jobsearch;
 
 
 
+import com.jobsearch.models.QualificationPojo;
 import com.jobsearch.models.CheckeAppliedJobsPojo;
 import com.jobsearch.models.EditMyJobsPojo;
 import com.jobsearch.models.EditProfilePojo;
@@ -10,9 +11,8 @@ import com.jobsearch.models.ListOfAppliedJobsPojo;
 import com.jobsearch.models.ListOfFiltersPojo;
 import com.jobsearch.models.ListOfJobsPojo;
 import com.jobsearch.models.ListOfUserJobsPojo;
-import com.jobsearch.models.MyProfilePOJO;
 import com.jobsearch.models.NewUserJobsPojo;
-import com.jobsearch.models.UploadObject;
+import com.jobsearch.models.SalaryPojo;
 import com.jobsearch.models.UserJobStatusPojo;
 import com.jobsearch.models.UserJobstatusDetailsPojo;
 
@@ -139,10 +139,6 @@ public interface EndPointUrl {
 
     );
 
-
-
-
-
     @GET("Jobsearch/getNewJobs.php")
     Call<List<NewUserJobsPojo>> newuserJobs(
             @Query("order") String order
@@ -186,6 +182,15 @@ public interface EndPointUrl {
 
     );
 
+
+    @GET("Jobsearch/deletemsg.php")
+    Call<ResponseData> deletemsg(
+            @Query("id") String id
+
+    );
+
+
+
     @Multipart
     @POST("Jobsearch/applyJob.php")
     Call<ResponseData> apply_job(
@@ -207,6 +212,23 @@ public interface EndPointUrl {
             @Query("id") String id,
             @Query("status") String status
     );
+
+
+    @GET("Jobsearch/updateinterview.php")
+    Call<ResponseData> interview_schedule(
+
+            @Query("id") String id,
+            @Query("dat") String dat,
+            @Query("time") String time,
+            @Query("location") String location,
+            @Query("status") String status
+    );
+
+    @GET("/Jobsearch/getqualification.php")
+    Call<List<QualificationPojo>> getqualification();
+
+    @GET("/Jobsearch/getsalary.php")
+    Call<List<SalaryPojo>> getsalary();
 
 
 }

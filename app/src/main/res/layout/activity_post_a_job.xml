@@ -107,9 +107,10 @@
             android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/spin_qualif"
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
+
+        <!--android:entries="@array/spin_qualif"-->
 
 
         <TextView
@@ -159,7 +160,6 @@
             android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/spin_salary"
             android:scrollbars="none"
             android:spinnerMode="dropdown"/>
 
