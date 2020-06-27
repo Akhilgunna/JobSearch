@@ -21,9 +21,11 @@
         <ImageView
             android:id="@+id/iv"
             android:src="@drawable/ic_status_msg"
-            android:scaleType="center"
-            android:layout_width="75dp"
-            android:layout_height="75dp" />
+            android:scaleType="fitXY"
+
+            android:layout_margin="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
             <LinearLayout
                 android:orientation="vertical"
                 android:padding="8dp"
@@ -32,12 +34,16 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/tv_aid"
+
                     android:layout_marginTop="4dp"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/tv_jobid"
+                    android:visibility="gone"
+
                     android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -45,7 +51,9 @@
 
                 <TextView
                     android:id="@+id/tv_jid"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -53,6 +61,7 @@
                 <TextView
                     android:id="@+id/tv_status"
                     android:layout_marginTop="8dp"
+                    android:visibility="gone"
                     android:textSize="18dp"
                     android:fontFamily="sans-serif-black"
                     android:layout_width="match_parent"
@@ -62,6 +71,7 @@
                 <Button
                     android:id="@+id/btn_info"
                     android:text="Info"
+                    android:visibility="gone"
                     android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:layout_gravity="right"

@@ -106,6 +106,12 @@ public interface EndPointUrl {
             @Query("email") String email
     );
 
+    @GET("/Jobsearch/getlogo.php?")
+    Call<UserJobStatusPojo> getlogo(
+            @Query("id") String id
+
+    );
+
 
     @GET("/Jobsearch/getjobsbyid.php?")
     Call<List<UserJobstatusDetailsPojo>> getjobsbyid(

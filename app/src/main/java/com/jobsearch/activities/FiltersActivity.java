@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -40,6 +42,9 @@ public class FiltersActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     List<ListOfFiltersPojo> a1;
     FilterAdapter filterAdapter;
+    SeekBar simpleSeekBar;
+    int progressChangedValue = 0;
+    TextView tv_salary;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +58,28 @@ public class FiltersActivity extends AppCompatActivity {
         search = (EditText) findViewById(R.id.search);
         et_location = (EditText) findViewById(R.id.et_location);
         spin_job_type = (Spinner) findViewById(R.id.spin_job_type);
-        spin_sal = (Spinner) findViewById(R.id.spin_sal);
+        //spin_sal = (Spinner) findViewById(R.id.spin_sal);
+
+        simpleSeekBar=(SeekBar)findViewById(R.id.simpleSeekBar);
+        tv_salary=(TextView)findViewById(R.id.tv_salary);
+
+
+        simpleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //Toast.makeText(FiltersActivity.this, "Seek bar progress is :" + progressChangedValue,Toast.LENGTH_SHORT).show();
+                tv_salary.setText("Salary is:  "+progressChangedValue+"$");
+
+            }
+        });
 
         btn_submit = (Button) findViewById(R.id.btn_submit);
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +89,8 @@ public class FiltersActivity extends AppCompatActivity {
                 intent.putExtra("search", search.getText().toString());
                 intent.putExtra("location", et_location.getText().toString());
                 intent.putExtra("job_type", spin_job_type.getSelectedItem().toString());
-                intent.putExtra("salary", spin_sal.getSelectedItem().toString());
+                //intent.putExtra("salary", spin_sal.getSelectedItem().toString());
+                intent.putExtra("salary",progressChangedValue);
                 startActivity(intent);
             }
         });

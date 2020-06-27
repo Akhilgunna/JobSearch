@@ -3,7 +3,9 @@ package com.jobsearch.activities;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +30,9 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.ResponseData;
+import com.jobsearch.RetrofitInstance;
+import com.jobsearch.Utils;
+import com.jobsearch.models.EditProfilePojo;
 
 import java.io.File;
 import java.util.HashMap;
@@ -58,6 +63,9 @@ public class FillTheDetailsFormActivity extends AppCompatActivity implements Eas
     int PLACE_PICKER_REQUEST =1;
     StringBuilder stringBuilder;
     Spinner spin_experience,spinner_age;
+    SharedPreferences sharedPreferences;
+    String email;
+    List<EditProfilePojo> a1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +74,10 @@ public class FillTheDetailsFormActivity extends AppCompatActivity implements Eas
         getSupportActionBar().setTitle("Fill The Details");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
+        email = sharedPreferences.getString("user_name", "def-val");
+
         spin_experience=(Spinner)findViewById(R.id.spin_experience);
         spinner_age=(Spinner)findViewById(R.id.spinner_age);
         //tv_Location=(TextView)findViewById(R.id.tv_Location);
@@ -86,12 +98,15 @@ public class FillTheDetailsFormActivity extends AppCompatActivity implements Eas
             }
         });
 
+
+        // et_age=(EditText)findViewById(R.id.et_age);
+        // et_experience=(EditText)findViewById(R.id.et_experience);
         et_name=(EditText)findViewById(R.id.et_name);
-       // et_age=(EditText)findViewById(R.id.et_age);
-       // et_experience=(EditText)findViewById(R.id.et_experience);
         et_emailid=(EditText)findViewById(R.id.et_emailid);
+        et_emailid.setText(email);
         et_location=(EditText)findViewById(R.id.et_location);
         et_postal_code=(EditText)findViewById(R.id.et_postal_code);
+        getData();
 
         bt_upload_resume=(Button)findViewById(R.id.bt_upload_resume);
         bt_upload_resume.setOnClickListener(new View.OnClickListener() {
@@ -188,12 +203,14 @@ public class FillTheDetailsFormActivity extends AppCompatActivity implements Eas
         map.put("time",getIntent().getStringExtra("time"));
         map.put("name",et_name.getText().toString());
         //map.put("age",et_age.getText().toString());
-       // map.put("exp",et_experience.getText().toString());
+        // map.put("exp",et_experience.getText().toString());
         map.put("age",spinner_age.getSelectedItem().toString());
         map.put("exp",spin_experience.getSelectedItem().toString());
         map.put("email", et_emailid.getText().toString());
         map.put("location",et_location.getText().toString());
         map.put("postal",et_postal_code.getText().toString());
+        map.put("logo",getIntent().getStringExtra("logo"));
+
 
 
         RequestBody mFile = RequestBody.create(MediaType.parse("image/*"), file);
@@ -218,6 +235,36 @@ public class FillTheDetailsFormActivity extends AppCompatActivity implements Eas
             public void onFailure(Call<ResponseData> call, Throwable t) {
                 pd.dismiss();
                 Toast.makeText(FillTheDetailsFormActivity.this, "Error"+t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    public void getData(){
+        progressDialog = new ProgressDialog(FillTheDetailsFormActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+
+        EndPointUrl service = RetrofitInstance.getRetrofitInstance().create(EndPointUrl.class);
+        Call<List<EditProfilePojo>> call = service.getMyProfile(email);
+
+        call.enqueue(new Callback<List<EditProfilePojo>>() {
+            @Override
+            public void onResponse(Call<List<EditProfilePojo>> call, Response<List<EditProfilePojo>> response) {
+
+                progressDialog.dismiss();
+                a1 = response.body();
+                // Toast.makeText(getApplicationContext(),""+response.body().size(),Toast.LENGTH_LONG).show();
+                EditProfilePojo user = a1.get(0);
+
+                et_name.setText(user.getFname()+" "+user.getLname());
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<EditProfilePojo>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(FillTheDetailsFormActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

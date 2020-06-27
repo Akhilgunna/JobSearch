@@ -31,15 +31,21 @@
         <item>Salary</item>
 
         <item>Select below</item>
-        <item>10$-12$</item>
-        <item>12$-15$</item>
-        <item>15$-17$</item>
-        <item>17$-19$</item>
-        <item>19$-21$</item>
-        <item>21$-23$</item>
-        <item>23$-25$</item>
-        <item>25$-27$</item>
-        <item>27-30$</item>
+        <item>1$</item>
+        <item>2$</item>
+        <item>3$</item>
+        <item>4$</item>
+        <item>5$</item>
+        <item>6$</item>
+        <item>7$</item>
+        <item>8$</item>
+        <item>9$</item>
+        <item>10$</item>
+        <item>11$</item>
+        <item>12$</item>
+        <item>13$</item>
+        <item>14$</item>
+        <item>15$</item>
         <item>More then 30$</item>
 
     </string-array>
@@ -55,15 +61,21 @@
 
     <string-array name="spin_salary">
         <item>Select below</item>
-        <item>10$-12$</item>
-       <item>12$-15$</item>
-        <item>15$-17$</item>
-        <item>17$-19$</item>
-        <item>19$-21$</item>
-        <item>21$-23$</item>
-        <item>23$-25$</item>
-        <item>25$-27$</item>
-        <item>27-30$</item>
+        <item>1$</item>
+        <item>2$</item>
+        <item>3$</item>
+        <item>4$</item>
+        <item>5$</item>
+        <item>6$</item>
+        <item>7$</item>
+        <item>8$</item>
+        <item>9$</item>
+        <item>10$</item>
+        <item>11$</item>
+        <item>12$</item>
+        <item>13$</item>
+        <item>14$</item>
+        <item>15$</item>
         <item>More then 30$</item>
     </string-array>
 

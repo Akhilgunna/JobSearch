@@ -85,8 +85,8 @@ public class SearchJobsActivity extends AppCompatActivity {
             public void onFailure(Call<List<ListOfUserJobsPojo>> call, Throwable t) {
                 progressDialog.dismiss();
                // Toast.makeText(SearchJobsActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-                Toast.makeText(SearchJobsActivity.this,"Oops No Jobs found...!",Toast.LENGTH_SHORT).show();
-                tv_nojobs.setText("Oops No Jobs found...!");
+                Toast.makeText(SearchJobsActivity.this,"No Jobs found...!",Toast.LENGTH_SHORT).show();
+                tv_nojobs.setText("No Jobs found...!");
             }
         });
     }
