@@ -27,21 +27,20 @@ public class UserJobStatusPojo {
     @SerializedName("location")
     private String location;
 
+    @SerializedName("logo")
+    private String logo;
 
 
+    public UserJobStatusPojo(String Id,String job_id, String job_title, String status,String dat,String time,String location,String logo) {
 
-
-
-
-    public UserJobStatusPojo(String Id,String job_id, String job_title, String status,String dat,String time,String location) {
-
-    this.setJob_title(job_title);
-    this.setStatus(status);
-     this.setId(Id);
-     this.setDat(dat);
-     this.setTime(time);
-     this.setLocation(location);
-     this.setJob_id(job_id);
+        this.setJob_title(job_title);
+        this.setStatus(status);
+        this.setId(Id);
+        this.setDat(dat);
+        this.setTime(time);
+        this.setLocation(location);
+        this.setJob_id(job_id);
+        this.setLogo(logo);
 
     }
 
@@ -99,5 +98,14 @@ public class UserJobStatusPojo {
 
     public void setJob_id(String job_id) {
         this.job_id = job_id;
+    }
+
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }

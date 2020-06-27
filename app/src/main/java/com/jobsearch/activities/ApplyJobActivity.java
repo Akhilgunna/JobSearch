@@ -43,6 +43,7 @@ public class ApplyJobActivity extends AppCompatActivity {
     RadioButton radio_yes,radio_no;
     LinearLayout ll;
     ProgressBar progressBar;
+    String img;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,7 @@ public class ApplyJobActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Job Details");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        img=getIntent().getStringExtra("img_logo");
 
         image_view=(ImageView)findViewById(R.id.image_view);
         Glide.with(ApplyJobActivity.this).load(getIntent().getStringExtra("img_logo")).into(image_view);
@@ -86,6 +88,8 @@ public class ApplyJobActivity extends AppCompatActivity {
                 intent.putExtra("time",tv_time.getText().toString());
                 intent.putExtra("id",getIntent().getStringExtra("id"));
                 intent.putExtra("title",getIntent().getStringExtra("title"));
+                intent.putExtra("logo",img);
+
                 startActivity(intent);
 
             }
@@ -113,12 +117,12 @@ public class ApplyJobActivity extends AppCompatActivity {
         bt_check_aval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(getIntent().getStringExtra("availability").equals("Yes")) {
-                   Toast.makeText(ApplyJobActivity.this, "The Selected Schedule is Avalilable", Toast.LENGTH_SHORT).show();
-               }
-               else{
-                   Toast.makeText(ApplyJobActivity.this, "The Following  Schedule is not Avalilable", Toast.LENGTH_SHORT).show();
-               }
+                if(getIntent().getStringExtra("availability").equals("Yes")) {
+                    Toast.makeText(ApplyJobActivity.this, "The Selected Schedule is Avalilable", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(ApplyJobActivity.this, "The Following  Schedule is not Avalilable", Toast.LENGTH_SHORT).show();
+                }
 
 
             }

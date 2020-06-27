@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.jobsearch.EndPointUrl;
 import com.jobsearch.R;
 import com.jobsearch.ResponseData;
@@ -30,6 +32,8 @@ import retrofit2.Response;
 public class UserJobStatusAdapter extends BaseAdapter {
     List<UserJobStatusPojo> ar;
     Context cnt;
+    String str="http://parttimejobs.site/Jobsearch/";
+    //ProgressDialog progressDialog;
     public UserJobStatusAdapter(List<UserJobStatusPojo> ar, Context cnt)
     {
         this.ar=ar;
@@ -58,6 +62,26 @@ public class UserJobStatusAdapter extends BaseAdapter {
 
         TextView tv_aid=(TextView)obj2.findViewById(R.id.tv_aid);
         tv_aid.setText("Application Id:  "+ar.get(pos).getId());
+
+
+        ImageView iv=(ImageView)obj2.findViewById(R.id.iv);
+        Glide.with(cnt).load(ar.get(pos).getLogo()).into(iv);
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(cnt,UserJobStatusDetails.class);
+                intent.putExtra("aid",ar.get(pos).getId());
+                intent.putExtra("jid",ar.get(pos).getJob_id());
+                intent.putExtra("status",ar.get(pos).getStatus());
+                intent.putExtra("date",ar.get(pos).getDat());
+                intent.putExtra("time",ar.get(pos).getTime());
+                intent.putExtra("locoation",ar.get(pos).getLocation());
+
+                cnt.startActivity(intent);
+            }
+        });
+
         TextView tv_jobid=(TextView)obj2.findViewById(R.id.tv_jobid);
         tv_jobid.setText("Job Id:  "+ar.get(pos).getJob_id());
 
@@ -84,7 +108,10 @@ public class UserJobStatusAdapter extends BaseAdapter {
         });
 
 
+
+
         return obj2;
     }
+
 
 }

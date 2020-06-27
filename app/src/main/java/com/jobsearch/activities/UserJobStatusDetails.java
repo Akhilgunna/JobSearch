@@ -37,7 +37,7 @@ public class UserJobStatusDetails extends AppCompatActivity {
     ProgressDialog progressDialog;
     List<UserJobstatusDetailsPojo> al;
     Button btn_delete;
-    TextView tv_date,tv_time,tv_location;
+    TextView tv_date,tv_time,tv_location,tv_status;
     CardView card_view;
     String jid;
     @Override
@@ -56,6 +56,9 @@ public class UserJobStatusDetails extends AppCompatActivity {
         tv_date.setText("Date:   "+getIntent().getStringExtra("date"));
         tv_time.setText("Time:   "+getIntent().getStringExtra("time"));
         tv_location.setText("Location:   "+getIntent().getStringExtra("locoation"));
+
+        tv_status=(TextView)findViewById(R.id.tv_status);
+        tv_status.setText("Status:   "+getIntent().getStringExtra("status"));
 
         jid=getIntent().getStringExtra("jid");
         card_view=(CardView)findViewById(R.id.card_view);
@@ -123,7 +126,7 @@ public class UserJobStatusDetails extends AppCompatActivity {
                 }else {
                     Intent intent=new Intent(UserJobStatusDetails.this, MyProfileActivity.class);
                     UserJobStatusDetails.this.startActivity(intent);
-                   // Toast.makeText(UserJobStatusDetails.this,"Status updated successfully",Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(UserJobStatusDetails.this,"Status updated successfully",Toast.LENGTH_SHORT).show();
 
                 }
             }
